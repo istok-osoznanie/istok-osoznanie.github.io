@@ -15,7 +15,7 @@
   --chakra-throat: #3498DB;
   --chakra-third: #8E44AD;
   --chakra-crown: #9B59B6;
-  
+
   /* === ОСНОВНАЯ ПАЛИТРА === */
   --cream: #E8F5E9;
   --sand: #B2DFDB;
@@ -150,94 +150,52 @@ nav {
   overflow: hidden;
 }
 
-/* ─── VIDEO BACKGROUND ─── */
-.hero-video-bg {
+.hero-bg {
   position: absolute;
   inset: 0;
-  overflow: hidden;
-  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 40%, rgba(184,149,106,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 75% 70%, rgba(107,124,90,0.08) 0%, transparent 60%);
 }
 
-.hero-video-bg video {
+.hero-rings {
   position: absolute;
-  inset: -50px;
-  width: calc(100% + 100px);
-  height: calc(100% + 100px);
-  object-fit: cover;
-  animation: bgBreath 15s ease-in-out infinite;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,149,106,0.12);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 6s ease-in-out infinite;
 }
-
-@keyframes bgBreath {
-  0%, 100% { transform: scale(1) translate(0, 0); }
-  50% { transform: scale(1.03) translate(-10px, -5px); }
-}
-
-.hero-video-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(26,82,118,0.75), rgba(39,174,96,0.55));
-  z-index: 1;
-}
-
-/* ─── FLOATING PARTICLES (капли) ─── */
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.hero-particles::before,
-.hero-particles::after {
+.hero-rings::before {
   content: '';
   position: absolute;
-  width: 6px;
-  height: 10px;
-  background: rgba(255,255,255,0.4);
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  animation: dropFall 4s ease-in infinite;
+  inset: -80px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,149,106,0.07);
+  animation: pulse 6s 1s ease-in-out infinite;
+}
+.hero-rings::after {
+  content: '';
+  position: absolute;
+  inset: -160px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,149,106,0.04);
+  animation: pulse 6s 2s ease-in-out infinite;
 }
 
-.hero-particles::before {
-  left: 20%;
-  top: -10px;
-  animation-delay: 0s;
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.04); opacity: 0.6; }
 }
 
-.hero-particles::after {
-  left: 60%;
-  top: -10px;
-  width: 4px;
-  height: 8px;
-  animation-delay: 2s;
-  animation-duration: 5s;
-}
-
-@keyframes dropFall {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(100vh) scale(0.5);
-    opacity: 0;
-  }
-}
-
-.hero-content { position: relative; z-index: 10; max-width: 700px; }
+.hero-content { position: relative; z-index: 1; max-width: 700px; }
 
 .hero-eyebrow {
   font-size: 11px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
   margin-bottom: 24px;
   display: block;
   animation: fadeUp 0.8s 0.1s ease both;
@@ -255,7 +213,7 @@ nav {
 
 .hero h1 em {
   font-style: italic;
-  color: var(--chakra-heart);
+  color: var(--bark);
 }
 
 .hero p {
@@ -276,8 +234,8 @@ nav {
 }
 
 .btn-primary {
-  background: var(--chakra-heart);
-  color: #FFFFFF;
+  background: var(--earth);
+  color: var(--cream);
   border: none;
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
@@ -289,12 +247,12 @@ nav {
   transition: background 0.3s, transform 0.2s;
 }
 
-.btn-primary:hover { background: var(--chakra-throat); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--soil); transform: translateY(-2px); }
 
 .btn-outline {
   background: none;
-  color: var(--chakra-throat);
-  border: 1px solid var(--chakra-throat);
+  color: var(--earth);
+  border: 1px solid var(--bark);
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
@@ -305,7 +263,7 @@ nav {
   transition: all 0.3s;
 }
 
-.btn-outline:hover { background: var(--chakra-throat); color: #FFFFFF; }
+.btn-outline:hover { background: var(--earth); color: var(--cream); }
 
 /* HOME CARDS */
 .home-sections {
@@ -313,7 +271,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  background: rgba(39,174,96,0.15);
+  background: rgba(184,149,106,0.15);
 }
 
 .home-card {
@@ -330,7 +288,7 @@ nav {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 3px;
-  background: var(--chakra-heart);
+  background: var(--bark);
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }
@@ -341,7 +299,7 @@ nav {
 .card-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
-  color: rgba(39,174,96,0.2);
+  color: rgba(184,149,106,0.2);
   font-weight: 300;
   line-height: 1;
   margin-bottom: 20px;
@@ -366,7 +324,7 @@ nav {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -386,7 +344,7 @@ nav {
   top: 40px; left: 60px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 120px;
-  color: rgba(52,152,219,0.15);
+  color: rgba(184,149,106,0.15);
   line-height: 1;
 }
 
@@ -404,21 +362,21 @@ nav {
 .home-quote cite {
   font-size: 13px;
   letter-spacing: 2px;
-  color: var(--chakra-throat);
+  color: var(--bark);
   text-transform: uppercase;
 }
 
 /* ─── SECTION HEADER ─── */
 .section-header {
   padding: 80px 60px 48px;
-  border-bottom: 1px solid rgba(52,152,219,0.2);
+  border-bottom: 1px solid rgba(52,152,219,0.3);
 }
 
 .section-header .eyebrow {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
   display: block;
   margin-bottom: 16px;
 }
@@ -431,7 +389,7 @@ nav {
   line-height: 1.1;
 }
 
-.section-header h2 em { font-style: italic; color: var(--chakra-heart); }
+.section-header h2 em { font-style: italic; color: var(--bark); }
 
 .section-header p {
   margin-top: 20px;
@@ -447,7 +405,7 @@ nav {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(52,152,219,0.15);
+  border-bottom: 1px solid rgba(184,149,106,0.15);
 }
 
 .filter-btn {
@@ -464,9 +422,9 @@ nav {
 }
 
 .filter-btn:hover, .filter-btn.active {
-  background: var(--chakra-heart);
-  border-color: var(--chakra-heart);
-  color: #FFFFFF;
+  background: var(--earth);
+  border-color: var(--earth);
+  color: var(--cream);
 }
 
 .blog-grid {
@@ -486,7 +444,7 @@ nav {
 
 .blog-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(26,82,118,0.1);
+  box-shadow: 0 20px 40px rgba(74,53,32,0.1);
 }
 
 .blog-thumb {
@@ -504,7 +462,7 @@ nav {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(26,82,118,0.15));
+  background: linear-gradient(to bottom, transparent 50%, rgba(74,53,32,0.15));
 }
 
 .blog-body { padding: 24px; }
@@ -513,7 +471,7 @@ nav {
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
   margin-bottom: 10px;
   display: block;
 }
@@ -563,7 +521,7 @@ nav {
 
 .practice-item:hover {
   background: var(--cream);
-  border-left-color: var(--chakra-heart);
+  border-left-color: var(--bark);
 }
 
 .practice-icon {
@@ -593,7 +551,7 @@ nav {
 
 .practice-duration {
   font-size: 12px;
-  color: var(--chakra-throat);
+  color: var(--bark);
   letter-spacing: 1px;
   text-align: right;
   white-space: nowrap;
@@ -651,7 +609,7 @@ nav {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
   margin-bottom: 10px;
   display: block;
 }
@@ -684,12 +642,12 @@ nav {
 .book-item {
   background: var(--white);
   padding: 20px;
-  border-left: 3px solid var(--chakra-heart);
+  border-left: 3px solid var(--moss);
   transition: border-color 0.3s;
   cursor: pointer;
 }
 
-.book-item:hover { border-left-color: var(--chakra-throat); }
+.book-item:hover { border-left-color: var(--bark); }
 
 .book-item strong {
   display: block;
@@ -719,20 +677,20 @@ nav {
 .author-visual {
   aspect-ratio: 1;
   max-width: 320px;
-  background: rgba(52,152,219,0.15);
+  background: rgba(184,149,106,0.15);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 96px;
-  border: 1px solid rgba(52,152,219,0.2);
+  border: 1px solid rgba(184,149,106,0.2);
 }
 
 .author-text .eyebrow {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
   display: block;
   margin-bottom: 16px;
 }
@@ -783,7 +741,7 @@ nav {
   top: 12px; right: 20px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px;
-  color: rgba(52,152,219,0.2);
+  color: rgba(184,149,106,0.2);
 }
 
 .testimonial-card p {
@@ -797,7 +755,7 @@ nav {
 .testimonial-author {
   font-size: 12px;
   letter-spacing: 1px;
-  color: var(--chakra-throat);
+  color: var(--bark);
   text-transform: uppercase;
 }
 
@@ -862,7 +820,7 @@ nav {
 .form-group textarea,
 .form-group select {
   background: var(--white);
-  border: 1px solid rgba(52,152,219,0.3);
+  border: 1px solid rgba(184,149,106,0.3);
   border-radius: 2px;
   padding: 12px 16px;
   font-family: 'Jost', sans-serif;
@@ -876,7 +834,7 @@ nav {
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--chakra-throat);
+  border-color: var(--bark);
 }
 
 .form-group textarea {
@@ -901,8 +859,8 @@ nav {
 /* SUCCESS MESSAGE */
 .form-success {
   display: none;
-  background: var(--chakra-heart);
-  color: #FFFFFF;
+  background: var(--moss);
+  color: var(--cream);
   padding: 20px 24px;
   border-radius: 2px;
   font-size: 14px;
@@ -942,7 +900,7 @@ footer {
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
   margin-bottom: 16px;
 }
 
@@ -977,7 +935,7 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(26,82,118,0.85);
+  background: rgba(42,32,24,0.85);
   z-index: 200;
   align-items: flex-start;
   justify-content: center;
@@ -1067,7 +1025,7 @@ footer {
 
 .divider-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(52,152,219,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(184,149,106,0.3), transparent);
   margin: 0 60px;
 }
 
@@ -1075,7 +1033,7 @@ footer {
 .creative-tabs {
   display: flex;
   gap: 0;
-  border-bottom: 1px solid rgba(52,152,219,0.2);
+  border-bottom: 1px solid rgba(52,152,219,0.3);
   padding: 0 60px;
   background: var(--white);
 }
@@ -1096,7 +1054,7 @@ footer {
 }
 
 .creative-tab:hover { color: var(--earth); }
-.creative-tab.active { color: var(--earth); border-bottom-color: var(--chakra-throat); }
+.creative-tab.active { color: var(--earth); border-bottom-color: var(--bark); }
 
 .creative-panel { display: none; }
 .creative-panel.active { display: block; animation: pageIn 0.4s ease both; }
@@ -1113,7 +1071,7 @@ footer {
   background: var(--white);
   padding: 36px 32px;
   border-radius: 2px;
-  border-top: 3px solid var(--chakra-heart);
+  border-top: 3px solid var(--bark);
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
   overflow: hidden;
@@ -1123,13 +1081,13 @@ footer {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(39,174,96,0.04), transparent);
+  background: linear-gradient(135deg, rgba(184,149,106,0.04), transparent);
   pointer-events: none;
 }
 
 .poem-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(26,82,118,0.1);
+  box-shadow: 0 16px 40px rgba(74,53,32,0.1);
 }
 
 .poem-title {
@@ -1154,7 +1112,7 @@ footer {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--chakra-throat);
+  color: var(--bark);
 }
 
 /* SUBMIT POEM FORM */
@@ -1172,7 +1130,7 @@ footer {
 
 .submit-box {
   background: var(--white);
-  border: 1px solid rgba(52,152,219,0.2);
+  border: 1px solid rgba(184,149,106,0.2);
   border-radius: 2px;
   padding: 36px;
   max-width: 680px;
@@ -1213,7 +1171,7 @@ footer {
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(26,82,118,0.75);
+  background: rgba(74,53,32,0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1232,7 +1190,7 @@ footer {
 }
 
 .gallery-overlay small {
-  color: var(--chakra-throat);
+  color: var(--bark);
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1241,7 +1199,7 @@ footer {
 
 /* UPLOAD BOX */
 .upload-box {
-  border: 2px dashed rgba(52,152,219,0.4);
+  border: 2px dashed rgba(184,149,106,0.4);
   border-radius: 4px;
   padding: 48px;
   text-align: center;
@@ -1252,7 +1210,7 @@ footer {
 }
 
 .upload-box:hover {
-  border-color: var(--chakra-throat);
+  border-color: var(--bark);
   background: var(--cream);
 }
 
@@ -1277,7 +1235,7 @@ footer {
 
 .forum-new-post {
   background: var(--white);
-  border: 1px solid rgba(52,152,219,0.2);
+  border: 1px solid rgba(184,149,106,0.2);
   border-radius: 2px;
   padding: 28px 32px;
   margin-bottom: 40px;
@@ -1305,7 +1263,7 @@ footer {
 }
 
 .forum-thread:hover {
-  border-left-color: var(--chakra-throat);
+  border-left-color: var(--bark);
   background: var(--cream);
 }
 
@@ -1349,7 +1307,7 @@ footer {
 
 .thread-replies {
   font-size: 13px;
-  color: var(--chakra-throat);
+  color: var(--bark);
   font-weight: 500;
   white-space: nowrap;
   padding-top: 4px;
@@ -1382,11 +1340,12 @@ footer {
   .submit-creative-wrap { padding: 0 20px 60px; }
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 
 <!-- NAV -->
-<<nav>
+<nav>
   <div class="nav-logo" onclick="showPage('home')">Ис<span>ток</span></div>
   <ul class="nav-links">
     <li><a onclick="showPage('home')" class="active" id="nav-home">Главная</a></li>
@@ -1423,13 +1382,8 @@ footer {
 <div class="page active" id="page-home">
 
   <section class="hero">
-    <div class="hero-video-bg">
-      <video autoplay muted loop playsinline>
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-raindrops-on-green-leaves-4762-large.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video-overlay"></div>
-    </div>
-    <div class="hero-particles"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-rings"></div>
     <div class="hero-content">
       <span class="hero-eyebrow">Место, где знание берёт начало</span>
       <h1>Путь к <em>истинному</em> осознанию</h1>
