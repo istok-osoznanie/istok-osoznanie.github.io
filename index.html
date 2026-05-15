@@ -210,8 +210,8 @@ nav {
   animation: fadeUp 0.8s 0.2s ease both;
 }
 .hero h1 em {
-  font-style: italic;
-  color: #FFFFFF;
+  font-style: normal;  /* убрать курсив */
+  color: #C8A96E;      /* мягкое золото */
 }
 .hero p {
   font-size: 17px;
@@ -228,10 +228,9 @@ nav {
   flex-wrap: wrap;
   animation: fadeUp 0.8s 0.4s ease both;
 }
-
 .btn-primary {
-  background: var(--earth);
-  color: var(--cream);
+  background: #C8A96E;        /* мягкое золото */
+  color: #1A2E40;             /* тёмный текст */
   border: none;
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
@@ -242,13 +241,15 @@ nav {
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
 }
-
+.btn-primary:hover {
+  background: #D4B87A;        /* светлее при наведении */
+  transform: translateY(-2px);
+}
 .btn-primary:hover { background: var(--soil); transform: translateY(-2px); }
-
 .btn-outline {
-  background: none;
-  color: var(--earth);
-  border: 1px solid var(--bark);
+  background: rgba(26,82,118,0.6);   /* полупрозрачный тёмный */
+  color: #FFFFFF;                    /* белый текст — читается! */
+  border: 1px solid rgba(255,255,255,0.3);
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
@@ -257,6 +258,11 @@ nav {
   border-radius: 2px;
   cursor: pointer;
   transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: rgba(26,82,118,0.8);
+  border-color: #FFFFFF;
 }
 
 .btn-outline:hover { background: var(--earth); color: var(--cream); }
