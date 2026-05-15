@@ -7,32 +7,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* === ЦВЕТА ЧАКР === */
-  --chakra-root: #C0392B;
-  --chakra-sacral: #E67E22;
-  --chakra-solar: #F1C40F;
-  --chakra-heart: #27AE60;
-  --chakra-throat: #3498DB;
-  --chakra-third: #8E44AD;
-  --chakra-crown: #9B59B6;
-
-  /* === ОСНОВНАЯ ПАЛИТРА === */
-  --cream: #E8F5E9;
-  --sand: #B2DFDB;
-  --bark: #27AE60;
-  --earth: #2980B9;
-  --soil: #1A5276;
-  --moss: #27AE60;
-  --moss-light: #58D68D;
-  --stone: #7FB3D3;
-  --stone-light: #AED6F1;
-  --ink: #1A3A52;
-  --text: #1A5276;
-  --text-muted: #5DADE2;
-  --bg: #E0F2F1;
-  --surface: #E8F8F5;
-  --surface2: #D5F5E3;
-  --white: #F0FFF4;
+  --cream: #F5EFE4;
+  --sand: #E8DCC8;
+  --bark: #B8956A;
+  --earth: #7A5C3A;
+  --soil: #4A3520;
+  --moss: #6B7C5A;
+  --moss-light: #8F9E7A;
+  --stone: #9A8E7E;
+  --stone-light: #C8BFB0;
+  --ink: #2A2018;
+  --text: #3E3020;
+  --text-muted: #8A7A66;
+  --bg: #F0E8D8;
+  --surface: #EDE4D4;
+  --surface2: #E6DBCA;
+  --white: #FAF6F0;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -64,31 +54,26 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.12);      /* почти прозрачный белый */
-  backdrop-filter: blur(16px);              /* сильное размытие */
-  -webkit-backdrop-filter: blur(16px);      /* для Safari */
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  background: rgba(240,232,216,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,149,106,0.2);
   padding: 0 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 64px;
 }
+
 .nav-logo {
   font-family: 'Cormorant Garamond', serif;
   font-size: 24px;
   font-weight: 300;
-  color: #1A2E40;
+  color: var(--soil);
   letter-spacing: 2px;
   cursor: pointer;
-  font-style: italic;  /* добавить */
 }
 
-.nav-logo span { 
-  color: #1A2E40; 
-  font-style: italic;  /* убрать разделение */
-}
-
+.nav-logo span { color: var(--bark); font-style: italic; }
 
 .nav-links {
   display: flex;
@@ -101,20 +86,20 @@ nav {
   font-size: 13px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #1A5276;
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.3s;
   cursor: pointer;
 }
 
-.nav-links a:hover, .nav-links a.active { color: #1A2E40; }
+.nav-links a:hover, .nav-links a.active { color: var(--earth); }
 
 .nav-search {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(26,82,118,0.08);
-  border: 1px solid rgba(26,82,118,0.15);
+  background: var(--surface2);
+  border: 1px solid rgba(184,149,106,0.3);
   border-radius: 24px;
   padding: 6px 14px;
 }
@@ -125,16 +110,13 @@ nav {
   outline: none;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
-  color: #1A2E40;
+  color: var(--text);
   width: 160px;
 }
 
-.nav-search input::placeholder { color: #5DADE2; }
+.nav-search input::placeholder { color: var(--stone); }
 
-.nav-search svg { color: #5DADE2; width: 14px; height: 14px; flex-shrink: 0; }
-
-
-
+.nav-search svg { color: var(--stone); width: 14px; height: 14px; flex-shrink: 0; }
 
 /* ─── PAGES ─── */
 .page { display: none; padding-top: 64px; min-height: 100vh; }
@@ -157,15 +139,15 @@ nav {
   position: relative;
   overflow: hidden;
 }
+
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(135deg, rgba(26,82,118,0.8), rgba(39,174,96,0.6)),
-    url('lotus.jpg');
-  background-size: cover;
-  background-position: center;
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 40%, rgba(184,149,106,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 75% 70%, rgba(107,124,90,0.08) 0%, transparent 60%);
 }
+
 .hero-rings {
   position: absolute;
   width: 600px; height: 600px;
@@ -208,27 +190,31 @@ nav {
   display: block;
   animation: fadeUp 0.8s 0.1s ease both;
 }
+
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(48px, 8vw, 88px);
   font-weight: 300;
   line-height: 1.05;
-  color: #1A2E40;
+  color: var(--soil);
   margin-bottom: 28px;
   animation: fadeUp 0.8s 0.2s ease both;
 }
+
 .hero h1 em {
-  font-style: normal;
-  color: #A3E6D7;
+  font-style: italic;
+  color: var(--bark);
 }
+
 .hero p {
   font-size: 17px;
   line-height: 1.9;
-  color: #FFFFFF;
+  color: var(--text-muted);
   max-width: 520px;
   margin: 0 auto 48px;
   animation: fadeUp 0.8s 0.3s ease both;
 }
+
 .hero-btns {
   display: flex;
   gap: 16px;
@@ -236,9 +222,10 @@ nav {
   flex-wrap: wrap;
   animation: fadeUp 0.8s 0.4s ease both;
 }
+
 .btn-primary {
-  background: #A3E6D7;
-  color: #1A2E40;
+  background: var(--earth);
+  color: var(--cream);
   border: none;
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
@@ -250,14 +237,12 @@ nav {
   transition: background 0.3s, transform 0.2s;
 }
 
-.btn-primary:hover {
-  background: #B8F0E3;
-  transform: translateY(-2px);
-}
+.btn-primary:hover { background: var(--soil); transform: translateY(-2px); }
+
 .btn-outline {
-  background: rgba(26,82,118,0.6);
-  color: #FFFFFF;
-  border: 1px solid rgba(255,255,255,0.3);
+  background: none;
+  color: var(--earth);
+  border: 1px solid var(--bark);
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
@@ -268,10 +253,7 @@ nav {
   transition: all 0.3s;
 }
 
-.btn-outline:hover {
-  background: rgba(26,82,118,0.8);
-  border-color: #FFFFFF;
-}
+.btn-outline:hover { background: var(--earth); color: var(--cream); }
 
 /* HOME CARDS */
 .home-sections {
@@ -290,21 +272,6 @@ nav {
   position: relative;
   overflow: hidden;
 }
-  .home-card.contact-card {
-  background: #1A5276;  /* глубокий сине-зелёный */
-}
-
-.home-card.contact-card h3 {
-  color: #FFFFFF;  /* белый заголовок */
-}
-
-.home-card.contact-card p {
-  color: rgba(255,255,255,0.7);  /* белый текст с прозрачностью */
-}
-
-.home-card.contact-card .card-link {
-  color: #A3E6D7;  /* мятная ссылка */
-}
 
 .home-card::before {
   content: '';
@@ -322,7 +289,7 @@ nav {
 .card-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
-  color: rgba(163,230,215,0.35);  /* мятный с прозрачностью 35% */
+  color: rgba(184,149,106,0.2);
   font-weight: 300;
   line-height: 1;
   margin-bottom: 20px;
@@ -339,7 +306,7 @@ nav {
 .home-card p {
   font-size: 14px;
   line-height: 1.8;
-  color: rgba(26,46,64,0.7);  /* тёмно-синий с прозрачностью 70% */
+  color: var(--text-muted);
 }
 
 .home-card .card-link {
@@ -347,7 +314,7 @@ nav {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #A3E6D7;  /* мятный без прозрачности */
+  color: var(--bark);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -355,15 +322,10 @@ nav {
 
 /* HOME QUOTE */
 .home-quote {
-  padding: 80px 60px;
+  padding: 100px 60px;
   text-align: center;
   background: var(--soil);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
 }
 
 .home-quote::before {
@@ -390,14 +352,14 @@ nav {
 .home-quote cite {
   font-size: 13px;
   letter-spacing: 2px;
-  color: rgba(255,255,255,0.5);
+  color: var(--bark);
   text-transform: uppercase;
 }
 
 /* ─── SECTION HEADER ─── */
 .section-header {
   padding: 80px 60px 48px;
-  border-bottom: 1px solid rgba(52,152,219,0.3);
+  border-bottom: 1px solid rgba(184,149,106,0.2);
 }
 
 .section-header .eyebrow {
@@ -920,17 +882,16 @@ footer {
 .footer-brand p {
   font-size: 13px;
   line-height: 1.8;
-  color: rgba(255,255,255,0.7);
+  color: var(--stone);
   max-width: 260px;
 }
 
 .footer-col h4 {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #A3E6D7;
+  color: var(--bark);
   margin-bottom: 16px;
-  font-weight: 400;
 }
 
 .footer-col ul { list-style: none; }
@@ -941,13 +902,13 @@ footer {
 
 .footer-col ul li a {
   font-size: 13px;
-  color: rgba(255,255,255,0.6);
+  color: var(--stone);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s;
 }
 
-.footer-col ul li a:hover { color: #FFFFFF; }
+.footer-col ul li a:hover { color: var(--sand); }
 
 .footer-bottom {
   background: var(--ink);
@@ -956,7 +917,7 @@ footer {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(154,142,126,0.5);
 }
 
 /* ─── SEARCH OVERLAY ─── */
@@ -1062,7 +1023,7 @@ footer {
 .creative-tabs {
   display: flex;
   gap: 0;
-  border-bottom: 1px solid rgba(52,152,219,0.3);
+  border-bottom: 1px solid rgba(184,149,106,0.2);
   padding: 0 60px;
   background: var(--white);
 }
@@ -1380,10 +1341,11 @@ footer {
     <li><a onclick="showPage('blog')" id="nav-blog">Статьи</a></li>
     <li><a onclick="showPage('practices')" id="nav-practices">Практики</a></li>
     <li><a onclick="showPage('philosophy')" id="nav-philosophy">Философия</a></li>
-  <li><a onclick="showPage('creative')" id="nav-creative">Творчество</a></li>
-<li><a onclick="showPage('gov')" id="nav-gov">Мировое правительство</a></li>
-<li><a onclick="showPage('slavic')" id="nav-slavic">История славян</a></li>
-<li><a onclick="showPage('contact')" id="nav-contact">Контакт</a></li>
+    <li><a onclick="showPage('stories')" id="nav-stories">Истории</a></li>
+    <li><a onclick="showPage('creative')" id="nav-creative">Творчество</a></li>
+    <li><a onclick="showPage('gov')" id="nav-gov">Власть</a></li>
+    <li><a onclick="showPage('slavic')" id="nav-slavic">Славяне</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Контакт</a></li>
   </ul>
   <div class="nav-search" onclick="openSearch()">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -1449,41 +1411,40 @@ footer {
       <p>Личный путь автора и живые истории людей, изменивших своё восприятие мира.</p>
       <div class="card-link">Читать истории →</div>
     </div>
-   <div class="home-card contact-card" onclick="showPage('contact')">
-  <div class="card-num">05</div>
-  <h3>Задать вопрос</h3>
+    <div class="home-card" onclick="showPage('contact')">
+      <div class="card-num">05</div>
+      <h3>Задать вопрос</h3>
       <p>Есть вопрос или хотите поделиться своим опытом? Напишите — ответим каждому.</p>
       <div class="card-link">Написать →</div>
     </div>
     <div class="home-card" onclick="showPage('creative')">
       <div class="card-num">06</div>
       <h3>Творчество</h3>
-      <p>Стихи, образы, картины — место где осознание выражает себя через искусство. Делитесь и обсуждайте.</p>
-      <div class="card-link">В галерею →</div>
+      <p>Стихи, галерея образов и обсуждения — пространство для совместного творческого поиска.</p>
+      <div class="card-link">В творческий раздел →</div>
     </div>
-   <div class="home-card" onclick="showPage('gov')">
-  <div class="card-num">07</div>
-  <h3>Мировое правительство</h3>
-  <p>Кто стоит за кулисами мировых событий? Как устроена власть на планете и куда она ведёт человечество.</p>
-  <div class="card-link">Исследовать →</div>
-</div>
-
-<div class="home-card" onclick="showPage('slavic')">
-  <div class="card-num">08</div>
-  <h3>Истинная история славян</h3>
-  <p>Забытые корни, древние цивилизации, подлинная история народа — до переписывания учебников.</p>
-  <div class="card-link">Читать →</div>
-</div>
-
-<div class="home-card" onclick="openSearch()">
-  <div class="card-num">🔍</div>
-  <h3>Поиск по сайту</h3>
-  <p>Найдите нужную статью, практику или мыслителя среди всех материалов сайта.</p>
-  <div class="card-link">Открыть поиск →</div>
-</div>
+    <div class="home-card" onclick="showPage('gov')">
+      <div class="card-num">07</div>
+      <h3>Мировое правительство</h3>
+      <p>Кто стоит за кулисами мировых событий? Как устроена власть на планете и куда она ведёт человечество.</p>
+      <div class="card-link">Исследовать →</div>
+    </div>
+    <div class="home-card" onclick="showPage('slavic')">
+      <div class="card-num">08</div>
+      <h3>Истинная история славян</h3>
+      <p>Забытые корни, древние цивилизации, подлинная история народа — до переписывания учебников.</p>
+      <div class="card-link">Читать →</div>
+    </div>
+    <div class="home-card" onclick="openSearch()">
+      <div class="card-num">🔍</div>
+      <h3>Поиск по сайту</h3>
+      <p>Найдите нужную статью, практику или мыслителя среди всех материалов сайта.</p>
+      <div class="card-link">Открыть поиск →</div>
+    </div>
+  </div>
 
   <div class="home-quote">
-    <<blockquote>«Познай самого себя —<<br>и ты познаешь богов и вселенную»</blockquote>
+    <blockquote>«Познай самого себя — и ты познаешь богов и вселенную»</blockquote>
     <cite>— Надпись в Дельфийском храме</cite>
   </div>
 
@@ -2197,9 +2158,10 @@ const searchData = [
   { icon:'✉️', title:'Написать нам', desc:'Контакт · Форма обратной связи', page:'contact' },
   { icon:'🖋️', title:'Стихи об осознании', desc:'Творчество · Поэзия', page:'creative' },
   { icon:'🎨', title:'Галерея образов', desc:'Творчество · Картины и иллюстрации', page:'creative' },
-    { icon:'💬', title:'Обсуждения', desc:'Творчество · Форум сообщества', page:'creative' },
+  { icon:'💬', title:'Обсуждения', desc:'Творчество · Форум сообщества', page:'creative' },
   { icon:'🏛️', title:'Мировое правительство', desc:'Власть · Глобальное управление', page:'gov' },
-  { icon:'⚔️', title:'Истинная история славян', desc:'Корни · Древние цивилизации', page:'slavic' },
+  { icon:'⚔️', title:'Ведическая Русь: что скрыто от нас', desc:'Славяне · Древность', page:'slavic' },
+  { icon:'🌲', title:'Истинная история славян', desc:'Корни · Древние цивилизации', page:'slavic' },
 ];
 
 function openSearch() {
@@ -2376,7 +2338,6 @@ function submitForm() {
   setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 5000);
 }
 </script>
-
 <!-- ═══════════════════════════════════════
      PAGE: МИРОВОЕ ПРАВИТЕЛЬСТВО
 ════════════════════════════════════════ -->
@@ -2388,23 +2349,48 @@ function submitForm() {
     <p>Исследование скрытых механизмов глобального управления и их влияния на судьбы народов.</p>
   </div>
 
+  <div class="blog-filters">
+    <button class="filter-btn active" onclick="filterBlog('all', this)">Все</button>
+    <button class="filter-btn" onclick="filterBlog('analytics', this)">Аналитика</button>
+    <button class="filter-btn" onclick="filterBlog('geopolitics', this)">Геополитика</button>
+    <button class="filter-btn" onclick="filterBlog('economy', this)">Экономика</button>
+  </div>
+
   <div class="blog-grid">
-    <div class="blog-card">
+    <div class="blog-card" data-tag="analytics">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#1A5276,#0D2B3E)">🏛️</div>
       <div class="blog-body">
         <span class="blog-tag">Аналитика</span>
         <h3>Кто управляет миром: теории и факты</h3>
-        <p>От Бильдербергского клуба до Давоса — как формируются решения, от которых зависит жизнь миллиардов.</p>
+        <p>От Бильдербергского клуба до Давоса — как формируются решения, от которых зависит жизнь миллиардов людей планеты.</p>
         <div class="blog-meta"><span>15 мин чтения</span><span>·</span><span>Май 2026</span></div>
       </div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" data-tag="geopolitics">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#2E4A66,#1A2E40)">🌐</div>
       <div class="blog-body">
         <span class="blog-tag">Геополитика</span>
-        <h3>Цифровая диктатура: приходят ли за нами</h3>
-        <p>Как технологии контроля превращаются в инструмент тотального надзора — и есть ли путь назад.</p>
+        <h3>Цифровая диктатура: куда идёт человечество</h3>
+        <p>Как технологии контроля превращаются в инструмент тотального надзора — и есть ли путь назад к подлинной свободе.</p>
         <div class="blog-meta"><span>12 мин чтения</span><span>·</span><span>Апрель 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="economy">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#1A3A52,#0A1E2E)">💰</div>
+      <div class="blog-body">
+        <span class="blog-tag">Экономика</span>
+        <h3>Центральные банки и контроль над деньгами</h3>
+        <p>Кому принадлежат деньги мира? Как система центральных банков формирует реальность миллиардов людей.</p>
+        <div class="blog-meta"><span>10 мин чтения</span><span>·</span><span>Март 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="analytics">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#2C3E50,#1A252F)">🔭</div>
+      <div class="blog-body">
+        <span class="blog-tag">Аналитика</span>
+        <h3>ООН, ВОЗ, МВФ: глобальные институты власти</h3>
+        <p>Зачем созданы эти организации, кто реально ими управляет и какие решения они принимают без нашего ведома.</p>
+        <div class="blog-meta"><span>13 мин чтения</span><span>·</span><span>Февраль 2026</span></div>
       </div>
     </div>
   </div>
@@ -2430,23 +2416,48 @@ function submitForm() {
     <p>Древние цивилизации, забытые знания и подлинная история народа — до переписывания учебников.</p>
   </div>
 
+  <div class="blog-filters">
+    <button class="filter-btn active" onclick="filterBlog('all', this)">Все</button>
+    <button class="filter-btn" onclick="filterBlog('ancient', this)">Древность</button>
+    <button class="filter-btn" onclick="filterBlog('culture', this)">Культура</button>
+    <button class="filter-btn" onclick="filterBlog('language', this)">Язык</button>
+  </div>
+
   <div class="blog-grid">
-    <div class="blog-card">
+    <div class="blog-card" data-tag="ancient">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#8B4513,#D2691E)">⚔️</div>
       <div class="blog-body">
         <span class="blog-tag">Древность</span>
         <h3>Ведическая Русь: что скрыто от нас</h3>
-        <p>Артефакты, топонимы и язык — следы древней высокой цивилизации на территории современной России.</p>
+        <p>Артефакты, топонимы и язык — следы древней высокой цивилизации на территории современной России и Украины.</p>
         <div class="blog-meta"><span>18 мин чтения</span><span>·</span><span>Май 2026</span></div>
       </div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" data-tag="culture">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#228B22,#006400)">🌲</div>
       <div class="blog-body">
         <span class="blog-tag">Культура</span>
         <h3>Славянские веды: миф или память народа</h3>
-        <p>Что такое «Велесова книга» и другие спорные тексты — подделки или сохранённое знание?</p>
+        <p>Что такое «Велесова книга» и другие спорные тексты — подделки или сохранённое древнее знание наших предков?</p>
         <div class="blog-meta"><span>14 мин чтения</span><span>·</span><span>Март 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="language">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#556B2F,#8FBC8F)">🌾</div>
+      <div class="blog-body">
+        <span class="blog-tag">Язык</span>
+        <h3>Праславянский язык: мать всех языков?</h3>
+        <p>Исследователи находят корни санскрита, латыни и греческого в праславянском языке. Что это говорит о нашей истории?</p>
+        <div class="blog-meta"><span>11 мин чтения</span><span>·</span><span>Февраль 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="ancient">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#6B3A2A,#A0522D)">🔥</div>
+      <div class="blog-body">
+        <span class="blog-tag">Древность</span>
+        <h3>Аркаим: город, который старше Египта</h3>
+        <p>На Урале найден город возрастом более 4000 лет — и его строители могли быть предками славян. Что мы знаем наверняка?</p>
+        <div class="blog-meta"><span>16 мин чтения</span><span>·</span><span>Январь 2026</span></div>
       </div>
     </div>
   </div>
