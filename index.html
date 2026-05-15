@@ -1381,8 +1381,10 @@ footer {
     <li><a onclick="showPage('blog')" id="nav-blog">Статьи</a></li>
     <li><a onclick="showPage('practices')" id="nav-practices">Практики</a></li>
     <li><a onclick="showPage('philosophy')" id="nav-philosophy">Философия</a></li>
-    <li><a onclick="showPage('stories')" id="nav-stories">Истории</a></li>
-    <li><a onclick="showPage('creative')" id="nav-creative">Творчество</a></li>
+  <li><a onclick="showPage('creative')" id="nav-creative">Творчество</a></li>
+<li><a onclick="showPage('gov')" id="nav-gov">Мировое правительство</a></li>
+<li><a onclick="showPage('slavic')" id="nav-slavic">История славян</a></li>
+<li><a onclick="showPage('contact')" id="nav-contact">Контакт</a></li>
     <li><a onclick="showPage('contact')" id="nav-contact">Контакт</a></li>
   </ul>
   <div class="nav-search" onclick="openSearch()">
@@ -1461,13 +1463,26 @@ footer {
       <p>Стихи, образы, картины — место где осознание выражает себя через искусство. Делитесь и обсуждайте.</p>
       <div class="card-link">В галерею →</div>
     </div>
-    <div class="home-card" onclick="openSearch()">
-      <div class="card-num">🔍</div>
-      <h3>Поиск по сайту</h3>
-      <p>Найдите нужную статью, практику или мыслителя среди всех материалов сайта.</p>
-      <div class="card-link">Открыть поиск →</div>
-    </div>
-  </div>
+   <div class="home-card" onclick="showPage('gov')">
+  <div class="card-num">07</div>
+  <h3>Мировое правительство</h3>
+  <p>Кто стоит за кулисами мировых событий? Как устроена власть на планете и куда она ведёт человечество.</p>
+  <div class="card-link">Исследовать →</div>
+</div>
+
+<div class="home-card" onclick="showPage('slavic')">
+  <div class="card-num">08</div>
+  <h3>Истинная история славян</h3>
+  <p>Забытые корни, древние цивилизации, подлинная история народа — до переписывания учебников.</p>
+  <div class="card-link">Читать →</div>
+</div>
+
+<div class="home-card" onclick="openSearch()">
+  <div class="card-num">🔍</div>
+  <h3>Поиск по сайту</h3>
+  <p>Найдите нужную статью, практику или мыслителя среди всех материалов сайта.</p>
+  <div class="card-link">Открыть поиск →</div>
+</div>
 
   <div class="home-quote">
 <<blockquote>«Познай самого себя —<<br>и ты познаешь богов и вселенную»</blockquote>
@@ -2184,7 +2199,9 @@ const searchData = [
   { icon:'✉️', title:'Написать нам', desc:'Контакт · Форма обратной связи', page:'contact' },
   { icon:'🖋️', title:'Стихи об осознании', desc:'Творчество · Поэзия', page:'creative' },
   { icon:'🎨', title:'Галерея образов', desc:'Творчество · Картины и иллюстрации', page:'creative' },
-  { icon:'💬', title:'Обсуждения', desc:'Творчество · Форум сообщества', page:'creative' },
+    { icon:'💬', title:'Обсуждения', desc:'Творчество · Форум сообщества', page:'creative' },
+  { icon:'🏛️', title:'Мировое правительство', desc:'Власть · Глобальное управление', page:'gov' },
+  { icon:'⚔️', title:'Истинная история славян', desc:'Корни · Древние цивилизации', page:'slavic' },
 ];
 
 function openSearch() {
@@ -2361,5 +2378,88 @@ function submitForm() {
   setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 5000);
 }
 </script>
+  <!-- ═══════════════════════════════════════
+     PAGE: МИРОВОЕ ПРАВИТЕЛЬСТВО
+════════════════════════════════════════ -->
+<div class="page" id="page-gov">
+
+  <div class="section-header">
+    <span class="eyebrow">Раздел 07 · Власть</span>
+    <h2>Мировое <em>правительство</em></h2>
+    <p>Исследование скрытых механизмов глобального управления и их влияния на судьбы народов.</p>
+  </div>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#1A5276,#0D2B3E)">🏛️</div>
+      <div class="blog-body">
+        <span class="blog-tag">Аналитика</span>
+        <h3>Кто управляет миром: теории и факты</h3>
+        <p>От Бильдербергского клуба до Давоса — как формируются решения, от которых зависит жизнь миллиардов.</p>
+        <div class="blog-meta"><span>15 мин чтения</span><span>·</span><span>Май 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#2E4A66,#1A2E40)">🌐</div>
+      <div class="blog-body">
+        <span class="blog-tag">Геополитика</span>
+        <h3>Цифровая диктатура: приходят ли за нами</h3>
+        <p>Как технологии контроля превращаются в инструмент тотального надзора — и есть ли путь назад.</p>
+        <div class="blog-meta"><span>12 мин чтения</span><span>·</span><span>Апрель 2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
+    <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('blog')">Статьи</a></li><li><a onclick="showPage('slavic')">История славян</a></li></ul></div>
+    <div class="footer-col"><h4>Связь</h4><ul><li><a onclick="showPage('contact')">Написать</a></li></ul></div>
+    <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
+
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE: ИСТОРИЯ СЛАВЯН
+════════════════════════════════════════ -->
+<div class="page" id="page-slavic">
+
+  <div class="section-header">
+    <span class="eyebrow">Раздел 08 · Корни</span>
+    <h2>Истинная история <em>славян</em></h2>
+    <p>Древние цивилизации, забытые знания и подлинная история народа — до переписывания учебников.</p>
+  </div>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#8B4513,#D2691E)">⚔️</div>
+      <div class="blog-body">
+        <span class="blog-tag">Древность</span>
+        <h3>Ведическая Русь: что скрыто от нас</h3>
+        <p>Артефакты, топонимы и язык — следы древней высокой цивилизации на территории современной России.</p>
+        <div class="blog-meta"><span>18 мин чтения</span><span>·</span><span>Май 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#228B22,#006400)">🌲</div>
+      <div class="blog-body">
+        <span class="blog-tag">Культура</span>
+        <h3>Славянские веды: миф или память народа</h3>
+        <p>Что такое «Велесова книга» и другие спорные тексты — подделки или сохранённое знание?</p>
+        <div class="blog-meta"><span>14 мин чтения</span><span>·</span><span>Март 2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
+    <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('gov')">Мировое правительство</a></li><li><a onclick="showPage('blog')">Статьи</a></li></ul></div>
+    <div class="footer-col"><h4>Связь</h4><ul><li><a onclick="showPage('contact')">Написать</a></li></ul></div>
+    <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
+
+</div>
 </body>
 </html>
