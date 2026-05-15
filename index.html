@@ -7,22 +7,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream: #E8F5E9;      /* светло-зелёный фон */
-  --sand: #B2DFDB;       /* бирюзовый */
-  --bark: #27AE60;       /* зелёный сердца */
-  --earth: #2980B9;      /* голубой горла */
-  --soil: #1A5276;       /* тёмно-синий */
-  --moss: #27AE60;       /* зелёный */
-  --moss-light: #58D68D; /* светло-зелёный */
-  --stone: #7FB3D3;      /* голубой */
-  --stone-light: #AED6F1;/* светло-голубой */
-  --ink: #1A3A52;        /* тёмно-синий */
-  --text: #1A5276;       /* текст синий */
-  --text-muted: #5DADE2; /* приглушённый голубой */
-  --bg: #E0F2F1;         /* фон бирюзовый */
-  --surface: #E8F8F5;    /* фон карточек */
-  --surface2: #D5F5E3;   /* фон элементов */
-  --white: #F0FFF4;      /* бело-зелёный */
+  /* === ЦВЕТА ЧАКР === */
+  --chakra-root: #C0392B;
+  --chakra-sacral: #E67E22;
+  --chakra-solar: #F1C40F;
+  --chakra-heart: #27AE60;
+  --chakra-throat: #3498DB;
+  --chakra-third: #8E44AD;
+  --chakra-crown: #9B59B6;
+
+  /* === ОСНОВНАЯ ПАЛИТРА === */
+  --cream: #E8F5E9;
+  --sand: #B2DFDB;
+  --bark: #27AE60;
+  --earth: #2980B9;
+  --soil: #1A5276;
+  --moss: #27AE60;
+  --moss-light: #58D68D;
+  --stone: #7FB3D3;
+  --stone-light: #AED6F1;
+  --ink: #1A3A52;
+  --text: #1A5276;
+  --text-muted: #5DADE2;
+  --bg: #E0F2F1;
+  --surface: #E8F8F5;
+  --surface2: #D5F5E3;
+  --white: #F0FFF4;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -74,6 +84,13 @@ nav {
 }
 
 .nav-logo span { color: #58D68D; font-style: italic; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
 
 .nav-links a {
   font-size: 13px;
@@ -352,7 +369,7 @@ nav {
 /* ─── SECTION HEADER ─── */
 .section-header {
   padding: 80px 60px 48px;
-  border-bottom: 1px solid rgba(184,149,106,0.2);
+  border-bottom: 1px solid rgba(52,152,219,0.3);
 }
 
 .section-header .eyebrow {
@@ -1016,7 +1033,7 @@ footer {
 .creative-tabs {
   display: flex;
   gap: 0;
-  border-bottom: 1px solid rgba(184,149,106,0.2);
+  border-bottom: 1px solid rgba(52,152,219,0.3);
   padding: 0 60px;
   background: var(--white);
 }
@@ -1323,6 +1340,7 @@ footer {
   .submit-creative-wrap { padding: 0 20px 60px; }
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 
