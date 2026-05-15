@@ -363,9 +363,12 @@ nav {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--bark);
+  color: #A3E6D7;        /* мятный/бирюзовый */
   display: block;
   margin-bottom: 16px;
+}
+.section-header .eyebrow .eyebrow-dim {
+  opacity: 0.6;           /* «РАЗДЕЛ 01» — бледнее */
 }
 .section-header h2 {
   font-family: 'Cormorant Garamond', serif;
@@ -374,11 +377,11 @@ nav {
   color: var(--soil);
   line-height: 1.1;
 }
-.section-header h2 em { font-style: italic; color: var(--bark); }
+.section-header h2 em { font-style: italic; color: #A3E6D7; }   /* мятный/бирюзовый акцент */
 .section-header p {
   margin-top: 20px;
   font-size: 16px;
-  color: var(--text-muted);
+  color: rgba(26, 62, 64, 0.7);   /* глубокий тёмно-синий, 70% непрозрачности */
   max-width: 560px;
   line-height: 1.8;
 }
@@ -1289,7 +1292,7 @@ footer {
 <!-- ═══ BLOG ═══ -->
 <div class="page" id="page-blog">
   <div class="section-header">
-    <span class="eyebrow">Раздел 01 · Статьи</span>
+    <span class="eyebrow"><span class="eyebrow-dim">Раздел 01 ·</span> Статьи</span>
     <h2>Блог & <em>Публикации</em></h2>
     <p>Тексты об осознании, природе знания и внутреннем пути — написанные для вдумчивого чтения.</p>
   </div>
