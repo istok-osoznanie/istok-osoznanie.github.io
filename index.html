@@ -210,8 +210,8 @@ nav {
   animation: fadeUp 0.8s 0.2s ease both;
 }
 .hero h1 em {
-  font-style: normal;  /* убрать курсив */
-  color: #C8A96E;      /* мягкое золото */
+  font-style: normal;
+  color: #C86A56;
 }
 .hero p {
   font-size: 17px;
@@ -229,8 +229,8 @@ nav {
   animation: fadeUp 0.8s 0.4s ease both;
 }
 .btn-primary {
-  background: #C8A96E;        /* мягкое золото */
-  color: #1A2E40;             /* тёмный текст */
+  background: #C86A56;
+  color: #FFFFFF;
   border: none;
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
@@ -241,14 +241,16 @@ nav {
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
 }
+
+.btn-primary:hover { background: #D97D64; transform: translateY(-2px); }
 .btn-primary:hover {
   background: #D4B87A;        /* светлее при наведении */
   transform: translateY(-2px);
 }
 .btn-primary:hover { background: var(--soil); transform: translateY(-2px); }
 .btn-outline {
-  background: rgba(26,82,118,0.6);   /* полупрозрачный тёмный */
-  color: #FFFFFF;                    /* белый текст — читается! */
+  background: rgba(26,82,118,0.6);
+  color: #FFFFFF;
   border: 1px solid rgba(255,255,255,0.3);
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
@@ -264,8 +266,6 @@ nav {
   background: rgba(26,82,118,0.8);
   border-color: #FFFFFF;
 }
-
-.btn-outline:hover { background: var(--earth); color: var(--cream); }
 
 /* HOME CARDS */
 .home-sections {
