@@ -7,22 +7,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream: #E8F5E9;      /* светло-зелёный фон */
-  --sand: #B2DFDB;       /* бирюзовый */
-  --bark: #27AE60;       /* зелёный сердца */
-  --earth: #2980B9;      /* голубой горла */
-  --soil: #1A5276;       /* тёмно-синий */
-  --moss: #27AE60;       /* зелёный */
-  --moss-light: #58D68D; /* светло-зелёный */
-  --stone: #7FB3D3;      /* голубой */
-  --stone-light: #AED6F1;/* светло-голубой */
-  --ink: #1A3A52;        /* тёмно-синий */
-  --text: #1A5276;       /* текст синий */
-  --text-muted: #5DADE2; /* приглушённый голубой */
-  --bg: #E0F2F1;         /* фон бирюзовый */
-  --surface: #E8F8F5;    /* фон карточек */
-  --surface2: #D5F5E3;   /* фон элементов */
-  --white: #F0FFF4;      /* бело-зелёный */
+  /* === ЦВЕТА ЧАКР === */
+  --chakra-root: #C0392B;
+  --chakra-sacral: #E67E22;
+  --chakra-solar: #F1C40F;
+  --chakra-heart: #27AE60;
+  --chakra-throat: #3498DB;
+  --chakra-third: #8E44AD;
+  --chakra-crown: #9B59B6;
+
+  /* === ОСНОВНАЯ ПАЛИТРА === */
+  --cream: #E8F5E9;
+  --sand: #B2DFDB;
+  --bark: #27AE60;
+  --earth: #2980B9;
+  --soil: #1A5276;
+  --moss: #27AE60;
+  --moss-light: #58D68D;
+  --stone: #7FB3D3;
+  --stone-light: #AED6F1;
+  --ink: #1A3A52;
+  --text: #1A5276;
+  --text-muted: #5DADE2;
+  --bg: #E0F2F1;
+  --surface: #E8F8F5;
+  --surface2: #D5F5E3;
+  --white: #F0FFF4;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -68,39 +78,37 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-size: 24px;
   font-weight: 300;
-  color: var(--soil);   ← МЕНЯЙТЕ ЭТО
+  color: #E0F2F1;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
-.nav-logo span { color: var(--bark); font-style: italic; }
+.nav-logo span { color: #58D68D; font-style: italic; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
 
 .nav-links a {
   font-size: 13px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--text-muted);   ← МЕНЯЙТЕ ЭТО
-  text-decoration: none;
-}
-
-.nav-links a {
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  color: #AED6F1;
   text-decoration: none;
   transition: color 0.3s;
   cursor: pointer;
 }
 
-.nav-links a:hover, .nav-links a.active {
-  color: var(--earth); 
-}
+.nav-links a:hover, .nav-links a.active { color: #FFFFFF; }
 
 .nav-search {
   display: flex;
   align-items: center;
   gap: 8px;
-   background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.1);
   border: 1px solid rgba(52,152,219,0.3);
   border-radius: 24px;
   padding: 6px 14px;
@@ -112,16 +120,13 @@ nav {
   outline: none;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
- color: #E0F2F1;
+  color: #E0F2F1;
   width: 160px;
 }
 
-.nav-search input::placeholder {
-  color: #7FB3D3;
+.nav-search input::placeholder { color: #7FB3D3; }
 
-nav-search svg {
-  color: #7FB3D3;
-}
+.nav-search svg { color: #7FB3D3; width: 14px; height: 14px; flex-shrink: 0; }
 
 /* ─── PAGES ─── */
 .page { display: none; padding-top: 64px; min-height: 100vh; }
@@ -364,7 +369,7 @@ nav-search svg {
 /* ─── SECTION HEADER ─── */
 .section-header {
   padding: 80px 60px 48px;
-  border-bottom: 1px solid rgba(184,149,106,0.2);
+  border-bottom: 1px solid rgba(52,152,219,0.3);
 }
 
 .section-header .eyebrow {
@@ -1028,7 +1033,7 @@ footer {
 .creative-tabs {
   display: flex;
   gap: 0;
-  border-bottom: 1px solid rgba(184,149,106,0.2);
+  border-bottom: 1px solid rgba(52,152,219,0.3);
   padding: 0 60px;
   background: var(--white);
 }
@@ -1335,6 +1340,7 @@ footer {
   .submit-creative-wrap { padding: 0 20px 60px; }
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -1348,8 +1354,6 @@ footer {
     <li><a onclick="showPage('philosophy')" id="nav-philosophy">Философия</a></li>
     <li><a onclick="showPage('stories')" id="nav-stories">Истории</a></li>
     <li><a onclick="showPage('creative')" id="nav-creative">Творчество</a></li>
-    <li><a onclick="showPage('gov')" id="nav-gov">Власть</a></li>
-    <li><a onclick="showPage('slavic')" id="nav-slavic">Славяне</a></li>
     <li><a onclick="showPage('contact')" id="nav-contact">Контакт</a></li>
   </ul>
   <div class="nav-search" onclick="openSearch()">
@@ -1417,7 +1421,7 @@ footer {
       <div class="card-link">Читать истории →</div>
     </div>
     <div class="home-card" onclick="showPage('contact')">
-      <div class="card-num">05</div>
+      <div class="card-num">07</div>
       <h3>Задать вопрос</h3>
       <p>Есть вопрос или хотите поделиться своим опытом? Напишите — ответим каждому.</p>
       <div class="card-link">Написать →</div>
@@ -1425,20 +1429,14 @@ footer {
     <div class="home-card" onclick="showPage('creative')">
       <div class="card-num">06</div>
       <h3>Творчество</h3>
+      <p>Стихи, образы, картины — место где осознание выражает себя через искусство. Делитесь и обсуждайте.</p>
+      <div class="card-link">В галерею →</div>
+    </div>
+    <div class="home-card" onclick="showPage('creative')">
+      <div class="card-num">06</div>
+      <h3>Творчество</h3>
       <p>Стихи, галерея образов и обсуждения — пространство для совместного творческого поиска.</p>
       <div class="card-link">В творческий раздел →</div>
-    </div>
-    <div class="home-card" onclick="showPage('gov')">
-      <div class="card-num">07</div>
-      <h3>Мировое правительство</h3>
-      <p>Кто стоит за кулисами мировых событий? Как устроена власть на планете и куда она ведёт человечество.</p>
-      <div class="card-link">Исследовать →</div>
-    </div>
-    <div class="home-card" onclick="showPage('slavic')">
-      <div class="card-num">08</div>
-      <h3>Истинная история славян</h3>
-      <p>Забытые корни, древние цивилизации, подлинная история народа — до переписывания учебников.</p>
-      <div class="card-link">Читать →</div>
     </div>
     <div class="home-card" onclick="openSearch()">
       <div class="card-num">🔍</div>
@@ -2164,9 +2162,6 @@ const searchData = [
   { icon:'🖋️', title:'Стихи об осознании', desc:'Творчество · Поэзия', page:'creative' },
   { icon:'🎨', title:'Галерея образов', desc:'Творчество · Картины и иллюстрации', page:'creative' },
   { icon:'💬', title:'Обсуждения', desc:'Творчество · Форум сообщества', page:'creative' },
-  { icon:'🏛️', title:'Мировое правительство', desc:'Власть · Глобальное управление', page:'gov' },
-  { icon:'⚔️', title:'Ведическая Русь: что скрыто от нас', desc:'Славяне · Древность', page:'slavic' },
-  { icon:'🌲', title:'Истинная история славян', desc:'Корни · Древние цивилизации', page:'slavic' },
 ];
 
 function openSearch() {
@@ -2343,139 +2338,5 @@ function submitForm() {
   setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 5000);
 }
 </script>
-<!-- ═══════════════════════════════════════
-     PAGE: МИРОВОЕ ПРАВИТЕЛЬСТВО
-════════════════════════════════════════ -->
-<div class="page" id="page-gov">
-
-  <div class="section-header">
-    <span class="eyebrow">Раздел 07 · Власть</span>
-    <h2>Мировое <em>правительство</em></h2>
-    <p>Исследование скрытых механизмов глобального управления и их влияния на судьбы народов.</p>
-  </div>
-
-  <div class="blog-filters">
-    <button class="filter-btn active" onclick="filterBlog('all', this)">Все</button>
-    <button class="filter-btn" onclick="filterBlog('analytics', this)">Аналитика</button>
-    <button class="filter-btn" onclick="filterBlog('geopolitics', this)">Геополитика</button>
-    <button class="filter-btn" onclick="filterBlog('economy', this)">Экономика</button>
-  </div>
-
-  <div class="blog-grid">
-    <div class="blog-card" data-tag="analytics">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#1A5276,#0D2B3E)">🏛️</div>
-      <div class="blog-body">
-        <span class="blog-tag">Аналитика</span>
-        <h3>Кто управляет миром: теории и факты</h3>
-        <p>От Бильдербергского клуба до Давоса — как формируются решения, от которых зависит жизнь миллиардов людей планеты.</p>
-        <div class="blog-meta"><span>15 мин чтения</span><span>·</span><span>Май 2026</span></div>
-      </div>
-    </div>
-    <div class="blog-card" data-tag="geopolitics">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#2E4A66,#1A2E40)">🌐</div>
-      <div class="blog-body">
-        <span class="blog-tag">Геополитика</span>
-        <h3>Цифровая диктатура: куда идёт человечество</h3>
-        <p>Как технологии контроля превращаются в инструмент тотального надзора — и есть ли путь назад к подлинной свободе.</p>
-        <div class="blog-meta"><span>12 мин чтения</span><span>·</span><span>Апрель 2026</span></div>
-      </div>
-    </div>
-    <div class="blog-card" data-tag="economy">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#1A3A52,#0A1E2E)">💰</div>
-      <div class="blog-body">
-        <span class="blog-tag">Экономика</span>
-        <h3>Центральные банки и контроль над деньгами</h3>
-        <p>Кому принадлежат деньги мира? Как система центральных банков формирует реальность миллиардов людей.</p>
-        <div class="blog-meta"><span>10 мин чтения</span><span>·</span><span>Март 2026</span></div>
-      </div>
-    </div>
-    <div class="blog-card" data-tag="analytics">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#2C3E50,#1A252F)">🔭</div>
-      <div class="blog-body">
-        <span class="blog-tag">Аналитика</span>
-        <h3>ООН, ВОЗ, МВФ: глобальные институты власти</h3>
-        <p>Зачем созданы эти организации, кто реально ими управляет и какие решения они принимают без нашего ведома.</p>
-        <div class="blog-meta"><span>13 мин чтения</span><span>·</span><span>Февраль 2026</span></div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
-    <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('blog')">Статьи</a></li><li><a onclick="showPage('slavic')">История славян</a></li></ul></div>
-    <div class="footer-col"><h4>Связь</h4><ul><li><a onclick="showPage('contact')">Написать</a></li></ul></div>
-    <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
-  </footer>
-  <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
-</div>
-
-<!-- ═══════════════════════════════════════
-     PAGE: ИСТОРИЯ СЛАВЯН
-════════════════════════════════════════ -->
-<div class="page" id="page-slavic">
-
-  <div class="section-header">
-    <span class="eyebrow">Раздел 08 · Корни</span>
-    <h2>Истинная история <em>славян</em></h2>
-    <p>Древние цивилизации, забытые знания и подлинная история народа — до переписывания учебников.</p>
-  </div>
-
-  <div class="blog-filters">
-    <button class="filter-btn active" onclick="filterBlog('all', this)">Все</button>
-    <button class="filter-btn" onclick="filterBlog('ancient', this)">Древность</button>
-    <button class="filter-btn" onclick="filterBlog('culture', this)">Культура</button>
-    <button class="filter-btn" onclick="filterBlog('language', this)">Язык</button>
-  </div>
-
-  <div class="blog-grid">
-    <div class="blog-card" data-tag="ancient">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#8B4513,#D2691E)">⚔️</div>
-      <div class="blog-body">
-        <span class="blog-tag">Древность</span>
-        <h3>Ведическая Русь: что скрыто от нас</h3>
-        <p>Артефакты, топонимы и язык — следы древней высокой цивилизации на территории современной России и Украины.</p>
-        <div class="blog-meta"><span>18 мин чтения</span><span>·</span><span>Май 2026</span></div>
-      </div>
-    </div>
-    <div class="blog-card" data-tag="culture">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#228B22,#006400)">🌲</div>
-      <div class="blog-body">
-        <span class="blog-tag">Культура</span>
-        <h3>Славянские веды: миф или память народа</h3>
-        <p>Что такое «Велесова книга» и другие спорные тексты — подделки или сохранённое древнее знание наших предков?</p>
-        <div class="blog-meta"><span>14 мин чтения</span><span>·</span><span>Март 2026</span></div>
-      </div>
-    </div>
-    <div class="blog-card" data-tag="language">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#556B2F,#8FBC8F)">🌾</div>
-      <div class="blog-body">
-        <span class="blog-tag">Язык</span>
-        <h3>Праславянский язык: мать всех языков?</h3>
-        <p>Исследователи находят корни санскрита, латыни и греческого в праславянском языке. Что это говорит о нашей истории?</p>
-        <div class="blog-meta"><span>11 мин чтения</span><span>·</span><span>Февраль 2026</span></div>
-      </div>
-    </div>
-    <div class="blog-card" data-tag="ancient">
-      <div class="blog-thumb" style="background:linear-gradient(135deg,#6B3A2A,#A0522D)">🔥</div>
-      <div class="blog-body">
-        <span class="blog-tag">Древность</span>
-        <h3>Аркаим: город, который старше Египта</h3>
-        <p>На Урале найден город возрастом более 4000 лет — и его строители могли быть предками славян. Что мы знаем наверняка?</p>
-        <div class="blog-meta"><span>16 мин чтения</span><span>·</span><span>Январь 2026</span></div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
-    <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('gov')">Мировое правительство</a></li><li><a onclick="showPage('blog')">Статьи</a></li></ul></div>
-    <div class="footer-col"><h4>Связь</h4><ul><li><a onclick="showPage('contact')">Написать</a></li></ul></div>
-    <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
-  </footer>
-  <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
-</div>
-
 </body>
 </html>
