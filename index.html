@@ -290,6 +290,21 @@ nav {
   position: relative;
   overflow: hidden;
 }
+  .home-card.contact-card {
+  background: #1A5276;  /* глубокий сине-зелёный */
+}
+
+.home-card.contact-card h3 {
+  color: #FFFFFF;  /* белый заголовок */
+}
+
+.home-card.contact-card p {
+  color: rgba(255,255,255,0.7);  /* белый текст с прозрачностью */
+}
+
+.home-card.contact-card .card-link {
+  color: #A3E6D7;  /* мятная ссылка */
+}
 
 .home-card::before {
   content: '';
@@ -307,7 +322,7 @@ nav {
 .card-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
-  color: rgba(184,149,106,0.2);
+  color: rgba(163,230,215,0.35);  /* мятный с прозрачностью 35% */
   font-weight: 300;
   line-height: 1;
   margin-bottom: 20px;
@@ -324,7 +339,7 @@ nav {
 .home-card p {
   font-size: 14px;
   line-height: 1.8;
-  color: var(--text-muted);
+  color: rgba(26,46,64,0.7);  /* тёмно-синий с прозрачностью 70% */
 }
 
 .home-card .card-link {
@@ -332,7 +347,7 @@ nav {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--bark);
+  color: #A3E6D7;  /* мятный без прозрачности */
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1428,9 +1443,9 @@ footer {
       <p>Личный путь автора и живые истории людей, изменивших своё восприятие мира.</p>
       <div class="card-link">Читать истории →</div>
     </div>
-    <div class="home-card" onclick="showPage('contact')">
-      <div class="card-num">07</div>
-      <h3>Задать вопрос</h3>
+   <div class="home-card contact-card" onclick="showPage('contact')">
+  <div class="card-num">05</div>
+  <h3>Задать вопрос</h3>
       <p>Есть вопрос или хотите поделиться своим опытом? Напишите — ответим каждому.</p>
       <div class="card-link">Написать →</div>
     </div>
