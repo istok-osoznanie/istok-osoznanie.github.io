@@ -7,22 +7,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream: #F5EFE4;
-  --sand: #E8DCC8;
-  --bark: #B8956A;
-  --earth: #7A5C3A;
-  --soil: #4A3520;
-  --moss: #6B7C5A;
-  --moss-light: #8F9E7A;
-  --stone: #9A8E7E;
-  --stone-light: #C8BFB0;
-  --ink: #2A2018;
-  --text: #3E3020;
-  --text-muted: #8A7A66;
-  --bg: #F0E8D8;
-  --surface: #EDE4D4;
-  --surface2: #E6DBCA;
-  --white: #FAF6F0;
+  --cream: #E8F5E9;      /* светло-зелёный фон */
+  --sand: #B2DFDB;       /* бирюзовый */
+  --bark: #27AE60;       /* зелёный сердца */
+  --earth: #2980B9;      /* голубой горла */
+  --soil: #1A5276;       /* тёмно-синий */
+  --moss: #27AE60;       /* зелёный */
+  --moss-light: #58D68D; /* светло-зелёный */
+  --stone: #7FB3D3;      /* голубой */
+  --stone-light: #AED6F1;/* светло-голубой */
+  --ink: #1A3A52;        /* тёмно-синий */
+  --text: #1A5276;       /* текст синий */
+  --text-muted: #5DADE2; /* приглушённый голубой */
+  --bg: #E0F2F1;         /* фон бирюзовый */
+  --surface: #E8F8F5;    /* фон карточек */
+  --surface2: #D5F5E3;   /* фон элементов */
+  --white: #F0FFF4;      /* бело-зелёный */
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -54,9 +54,9 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(240,232,216,0.92);
+  background: rgba(26,82,118,0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(184,149,106,0.2);
+  border-bottom: 1px solid rgba(52,152,219,0.3);
   padding: 0 40px;
   display: flex;
   align-items: center;
@@ -68,18 +68,18 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-size: 24px;
   font-weight: 300;
-  color: var(--soil);
+  color: var(--soil);   ← МЕНЯЙТЕ ЭТО
   letter-spacing: 2px;
-  cursor: pointer;
 }
 
 .nav-logo span { color: var(--bark); font-style: italic; }
 
-.nav-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  align-items: center;
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);   ← МЕНЯЙТЕ ЭТО
+  text-decoration: none;
 }
 
 .nav-links a {
@@ -92,14 +92,16 @@ nav {
   cursor: pointer;
 }
 
-.nav-links a:hover, .nav-links a.active { color: var(--earth); }
+.nav-links a:hover, .nav-links a.active {
+  color: var(--earth); 
+}
 
 .nav-search {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--surface2);
-  border: 1px solid rgba(184,149,106,0.3);
+   background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(52,152,219,0.3);
   border-radius: 24px;
   padding: 6px 14px;
 }
@@ -110,13 +112,16 @@ nav {
   outline: none;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
-  color: var(--text);
+ color: #E0F2F1;
   width: 160px;
 }
 
-.nav-search input::placeholder { color: var(--stone); }
+.nav-search input::placeholder {
+  color: #7FB3D3;
 
-.nav-search svg { color: var(--stone); width: 14px; height: 14px; flex-shrink: 0; }
+nav-search svg {
+  color: #7FB3D3;
+}
 
 /* ─── PAGES ─── */
 .page { display: none; padding-top: 64px; min-height: 100vh; }
