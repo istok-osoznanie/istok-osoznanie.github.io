@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* === ЦВЕТА ЧАКР === */
   --chakra-root: #C0392B;
   --chakra-sacral: #E67E22;
   --chakra-solar: #F1C40F;
@@ -16,7 +15,6 @@
   --chakra-third: #8E44AD;
   --chakra-crown: #9B59B6;
 
-  /* === ОСНОВНАЯ ПАЛИТРА === */
   --cream: #E8F5E9;
   --sand: #B2DFDB;
   --bark: #27AE60;
@@ -36,7 +34,6 @@
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -48,7 +45,6 @@ body {
   overflow-x: hidden;
 }
 
-/* GRAIN OVERLAY */
 body::after {
   content: '';
   position: fixed;
@@ -64,9 +60,10 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(26,82,118,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(52,152,219,0.3);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
   padding: 0 40px;
   display: flex;
   align-items: center;
@@ -78,55 +75,54 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-size: 24px;
   font-weight: 300;
-  color: #E0F2F1;
+  color: #1A2E40;
   letter-spacing: 2px;
   cursor: pointer;
+  font-style: italic;
 }
-
-.nav-logo span { color: #58D68D; font-style: italic; }
+.nav-logo span {
+  color: #1A2E40;
+  font-style: italic;
+}
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 28px;
   list-style: none;
   align-items: center;
 }
 
 .nav-links a {
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #AED6F1;
+  color: #1A5276;
   text-decoration: none;
   transition: color 0.3s;
   cursor: pointer;
 }
-
-.nav-links a:hover, .nav-links a.active { color: #FFFFFF; }
+.nav-links a:hover, .nav-links a.active { color: #1A2E40; }
 
 .nav-search {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(52,152,219,0.3);
+  background: rgba(26,82,118,0.08);
+  border: 1px solid rgba(26,82,118,0.15);
   border-radius: 24px;
   padding: 6px 14px;
 }
-
 .nav-search input {
   background: none;
   border: none;
   outline: none;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
-  color: #E0F2F1;
-  width: 160px;
+  color: #1A2E40;
+  width: 140px;
 }
-
-.nav-search input::placeholder { color: #7FB3D3; }
-
-.nav-search svg { color: #7FB3D3; width: 14px; height: 14px; flex-shrink: 0; }
+.nav-search input::placeholder { color: #5DADE2; }
+.nav-search svg { color: #5DADE2; width: 14px; height: 14px; flex-shrink: 0; }
 
 /* ─── PAGES ─── */
 .page { display: none; padding-top: 64px; min-height: 100vh; }
@@ -137,7 +133,7 @@ nav {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── HOME PAGE ─── */
+/* ─── HERO ─── */
 .hero {
   min-height: calc(100vh - 64px);
   display: flex;
@@ -154,15 +150,17 @@ nav {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 30% 40%, rgba(184,149,106,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 75% 70%, rgba(107,124,90,0.08) 0%, transparent 60%);
+    linear-gradient(135deg, rgba(26,82,118,0.7), rgba(39,174,96,0.5)),
+    url('lotus.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-rings {
   position: absolute;
   width: 600px; height: 600px;
   border-radius: 50%;
-  border: 1px solid rgba(184,149,106,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   animation: pulse 6s ease-in-out infinite;
@@ -172,7 +170,7 @@ nav {
   position: absolute;
   inset: -80px;
   border-radius: 50%;
-  border: 1px solid rgba(184,149,106,0.07);
+  border: 1px solid rgba(255,255,255,0.08);
   animation: pulse 6s 1s ease-in-out infinite;
 }
 .hero-rings::after {
@@ -180,7 +178,7 @@ nav {
   position: absolute;
   inset: -160px;
   border-radius: 50%;
-  border: 1px solid rgba(184,149,106,0.04);
+  border: 1px solid rgba(255,255,255,0.04);
   animation: pulse 6s 2s ease-in-out infinite;
 }
 
@@ -195,7 +193,7 @@ nav {
   font-size: 11px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--bark);
+  color: #A3E6D7;
   margin-bottom: 24px;
   display: block;
   animation: fadeUp 0.8s 0.1s ease both;
@@ -206,20 +204,20 @@ nav {
   font-size: clamp(48px, 8vw, 88px);
   font-weight: 300;
   line-height: 1.05;
-  color: var(--soil);
+  color: #1A2E40;
   margin-bottom: 28px;
   animation: fadeUp 0.8s 0.2s ease both;
 }
-
 .hero h1 em {
-  font-style: italic;
-  color: var(--bark);
+  font-style: normal;
+  color: #A3E6D7;
+  font-weight: 500;
 }
 
 .hero p {
   font-size: 17px;
   line-height: 1.9;
-  color: var(--text-muted);
+  color: #FFFFFF;
   max-width: 520px;
   margin: 0 auto 48px;
   animation: fadeUp 0.8s 0.3s ease both;
@@ -234,8 +232,8 @@ nav {
 }
 
 .btn-primary {
-  background: var(--earth);
-  color: var(--cream);
+  background: #A3E6D7;
+  color: #1A2E40;
   border: none;
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
@@ -246,13 +244,12 @@ nav {
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
 }
-
-.btn-primary:hover { background: var(--soil); transform: translateY(-2px); }
+.btn-primary:hover { background: #B8F0E3; transform: translateY(-2px); }
 
 .btn-outline {
-  background: none;
-  color: var(--earth);
-  border: 1px solid var(--bark);
+  background: rgba(26,82,118,0.6);
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.3);
   padding: 14px 32px;
   font-family: 'Jost', sans-serif;
   font-size: 13px;
@@ -262,8 +259,7 @@ nav {
   cursor: pointer;
   transition: all 0.3s;
 }
-
-.btn-outline:hover { background: var(--earth); color: var(--cream); }
+.btn-outline:hover { background: rgba(26,82,118,0.8); border-color: #FFFFFF; }
 
 /* HOME CARDS */
 .home-sections {
@@ -271,7 +267,7 @@ nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  background: rgba(184,149,106,0.15);
+  background: rgba(39,174,96,0.12);
 }
 
 .home-card {
@@ -282,7 +278,6 @@ nav {
   position: relative;
   overflow: hidden;
 }
-
 .home-card::before {
   content: '';
   position: absolute;
@@ -292,19 +287,17 @@ nav {
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }
-
 .home-card:hover { background: var(--cream); }
 .home-card:hover::before { transform: scaleX(1); }
 
 .card-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 52px;
-  color: rgba(184,149,106,0.2);
+  color: rgba(39,174,96,0.2);
   font-weight: 300;
   line-height: 1;
   margin-bottom: 20px;
 }
-
 .home-card h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -312,13 +305,11 @@ nav {
   color: var(--soil);
   margin-bottom: 12px;
 }
-
 .home-card p {
   font-size: 14px;
   line-height: 1.8;
   color: var(--text-muted);
 }
-
 .home-card .card-link {
   margin-top: 24px;
   font-size: 12px;
@@ -337,17 +328,15 @@ nav {
   background: var(--soil);
   position: relative;
 }
-
 .home-quote::before {
   content: '❝';
   position: absolute;
   top: 40px; left: 60px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 120px;
-  color: rgba(184,149,106,0.15);
+  color: rgba(39,174,96,0.15);
   line-height: 1;
 }
-
 .home-quote blockquote {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(22px, 3vw, 36px);
@@ -358,7 +347,6 @@ nav {
   max-width: 680px;
   margin: 0 auto 24px;
 }
-
 .home-quote cite {
   font-size: 13px;
   letter-spacing: 2px;
@@ -369,9 +357,8 @@ nav {
 /* ─── SECTION HEADER ─── */
 .section-header {
   padding: 80px 60px 48px;
-  border-bottom: 1px solid rgba(52,152,219,0.3);
+  border-bottom: 1px solid rgba(39,174,96,0.2);
 }
-
 .section-header .eyebrow {
   font-size: 11px;
   letter-spacing: 4px;
@@ -380,7 +367,6 @@ nav {
   display: block;
   margin-bottom: 16px;
 }
-
 .section-header h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(36px, 5vw, 60px);
@@ -388,9 +374,7 @@ nav {
   color: var(--soil);
   line-height: 1.1;
 }
-
 .section-header h2 em { font-style: italic; color: var(--bark); }
-
 .section-header p {
   margin-top: 20px;
   font-size: 16px;
@@ -399,15 +383,14 @@ nav {
   line-height: 1.8;
 }
 
-/* ─── BLOG PAGE ─── */
+/* ─── BLOG ─── */
 .blog-filters {
   padding: 32px 60px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(184,149,106,0.15);
+  border-bottom: 1px solid rgba(39,174,96,0.15);
 }
-
 .filter-btn {
   background: none;
   border: 1px solid var(--stone-light);
@@ -420,7 +403,6 @@ nav {
   cursor: pointer;
   transition: all 0.25s;
 }
-
 .filter-btn:hover, .filter-btn.active {
   background: var(--earth);
   border-color: var(--earth);
@@ -433,7 +415,6 @@ nav {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 32px;
 }
-
 .blog-card {
   background: var(--white);
   border-radius: 2px;
@@ -441,12 +422,10 @@ nav {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
-
 .blog-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(74,53,32,0.1);
+  box-shadow: 0 20px 40px rgba(26,82,118,0.12);
 }
-
 .blog-thumb {
   height: 180px;
   background: var(--surface2);
@@ -457,16 +436,13 @@ nav {
   position: relative;
   overflow: hidden;
 }
-
 .blog-thumb::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(74,53,32,0.15));
+  background: linear-gradient(to bottom, transparent 50%, rgba(26,82,118,0.15));
 }
-
 .blog-body { padding: 24px; }
-
 .blog-tag {
   font-size: 10px;
   letter-spacing: 2px;
@@ -475,7 +451,6 @@ nav {
   margin-bottom: 10px;
   display: block;
 }
-
 .blog-card h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
@@ -484,13 +459,11 @@ nav {
   margin-bottom: 10px;
   line-height: 1.3;
 }
-
 .blog-card p {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.7;
 }
-
 .blog-meta {
   margin-top: 16px;
   font-size: 12px;
@@ -499,14 +472,13 @@ nav {
   gap: 12px;
 }
 
-/* ─── PRACTICES PAGE ─── */
+/* ─── PRACTICES ─── */
 .practices-list {
   padding: 48px 60px 80px;
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-
 .practice-item {
   background: var(--white);
   padding: 36px 48px;
@@ -518,12 +490,10 @@ nav {
   transition: background 0.3s;
   border-left: 3px solid transparent;
 }
-
 .practice-item:hover {
   background: var(--cream);
   border-left-color: var(--bark);
 }
-
 .practice-icon {
   width: 64px; height: 64px;
   background: var(--surface);
@@ -534,7 +504,6 @@ nav {
   font-size: 28px;
   flex-shrink: 0;
 }
-
 .practice-content h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -542,13 +511,11 @@ nav {
   color: var(--soil);
   margin-bottom: 6px;
 }
-
 .practice-content p {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.7;
 }
-
 .practice-duration {
   font-size: 12px;
   color: var(--bark);
@@ -556,7 +523,6 @@ nav {
   text-align: right;
   white-space: nowrap;
 }
-
 .practice-duration strong {
   display: block;
   font-size: 28px;
@@ -565,14 +531,13 @@ nav {
   color: var(--earth);
 }
 
-/* ─── PHILOSOPHY PAGE ─── */
+/* ─── PHILOSOPHY ─── */
 .philo-grid {
   padding: 48px 60px 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
 }
-
 .philo-teacher {
   display: flex;
   gap: 24px;
@@ -583,9 +548,7 @@ nav {
   transition: transform 0.3s;
   cursor: pointer;
 }
-
 .philo-teacher:hover { transform: translateY(-4px); }
-
 .teacher-avatar {
   width: 72px; height: 72px;
   border-radius: 50%;
@@ -596,7 +559,6 @@ nav {
   font-size: 32px;
   flex-shrink: 0;
 }
-
 .teacher-info h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
@@ -604,7 +566,6 @@ nav {
   color: var(--soil);
   margin-bottom: 4px;
 }
-
 .teacher-era {
   font-size: 11px;
   letter-spacing: 2px;
@@ -613,17 +574,12 @@ nav {
   margin-bottom: 10px;
   display: block;
 }
-
 .teacher-info p {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.7;
 }
-
-.philo-books {
-  padding: 0 60px 80px;
-}
-
+.philo-books { padding: 0 60px 80px; }
 .books-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
@@ -631,14 +587,12 @@ nav {
   color: var(--soil);
   margin-bottom: 24px;
 }
-
 .books-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
   list-style: none;
 }
-
 .book-item {
   background: var(--white);
   padding: 20px;
@@ -646,9 +600,7 @@ nav {
   transition: border-color 0.3s;
   cursor: pointer;
 }
-
 .book-item:hover { border-left-color: var(--bark); }
-
 .book-item strong {
   display: block;
   font-family: 'Cormorant Garamond', serif;
@@ -657,13 +609,9 @@ nav {
   color: var(--soil);
   margin-bottom: 4px;
 }
+.book-item span { font-size: 12px; color: var(--text-muted); }
 
-.book-item span {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-/* ─── STORIES PAGE ─── */
+/* ─── STORIES ─── */
 .stories-author {
   padding: 60px;
   display: grid;
@@ -673,19 +621,17 @@ nav {
   background: var(--soil);
   color: var(--sand);
 }
-
 .author-visual {
   aspect-ratio: 1;
   max-width: 320px;
-  background: rgba(184,149,106,0.15);
+  background: rgba(39,174,96,0.15);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 96px;
-  border: 1px solid rgba(184,149,106,0.2);
+  border: 1px solid rgba(39,174,96,0.2);
 }
-
 .author-text .eyebrow {
   font-size: 11px;
   letter-spacing: 4px;
@@ -694,7 +640,6 @@ nav {
   display: block;
   margin-bottom: 16px;
 }
-
 .author-text h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 40px;
@@ -702,18 +647,13 @@ nav {
   color: var(--cream);
   margin-bottom: 20px;
 }
-
 .author-text p {
   font-size: 15px;
   line-height: 1.9;
   color: var(--stone-light);
   margin-bottom: 16px;
 }
-
-.testimonials {
-  padding: 64px 60px 80px;
-}
-
+.testimonials { padding: 64px 60px 80px; }
 .testimonials h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 32px;
@@ -721,29 +661,25 @@ nav {
   color: var(--soil);
   margin-bottom: 36px;
 }
-
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
 }
-
 .testimonial-card {
   background: var(--white);
   padding: 28px;
   border-radius: 2px;
   position: relative;
 }
-
 .testimonial-card::before {
   content: '❝';
   position: absolute;
   top: 12px; right: 20px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px;
-  color: rgba(184,149,106,0.2);
+  color: rgba(39,174,96,0.2);
 }
-
 .testimonial-card p {
   font-size: 14px;
   line-height: 1.8;
@@ -751,7 +687,6 @@ nav {
   margin-bottom: 20px;
   font-style: italic;
 }
-
 .testimonial-author {
   font-size: 12px;
   letter-spacing: 1px;
@@ -759,7 +694,7 @@ nav {
   text-transform: uppercase;
 }
 
-/* ─── CONTACT PAGE ─── */
+/* ─── CONTACT ─── */
 .contact-wrap {
   padding: 60px;
   display: grid;
@@ -767,7 +702,6 @@ nav {
   gap: 80px;
   max-width: 1100px;
 }
-
 .contact-info h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 40px;
@@ -776,14 +710,12 @@ nav {
   margin-bottom: 20px;
   line-height: 1.2;
 }
-
 .contact-info p {
   font-size: 15px;
   color: var(--text-muted);
   line-height: 1.9;
   margin-bottom: 40px;
 }
-
 .contact-detail {
   display: flex;
   align-items: center;
@@ -792,7 +724,6 @@ nav {
   font-size: 14px;
   color: var(--text-muted);
 }
-
 .contact-detail-icon {
   width: 40px; height: 40px;
   background: var(--surface2);
@@ -803,24 +734,19 @@ nav {
   font-size: 18px;
   flex-shrink: 0;
 }
-
-/* FORM */
 .contact-form { display: flex; flex-direction: column; gap: 20px; }
-
 .form-group { display: flex; flex-direction: column; gap: 8px; }
-
 .form-group label {
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--earth);
 }
-
 .form-group input,
 .form-group textarea,
 .form-group select {
   background: var(--white);
-  border: 1px solid rgba(184,149,106,0.3);
+  border: 1px solid rgba(39,174,96,0.3);
   border-radius: 2px;
   padding: 12px 16px;
   font-family: 'Jost', sans-serif;
@@ -830,33 +756,13 @@ nav {
   transition: border-color 0.3s;
   width: 100%;
 }
-
 .form-group input:focus,
 .form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--bark);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
+.form-group select:focus { border-color: var(--bark); }
+.form-group textarea { resize: vertical; min-height: 120px; }
 .form-group select { appearance: none; cursor: pointer; }
-
-.form-submit {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 8px;
-}
-
-.form-note {
-  font-size: 12px;
-  color: var(--stone);
-}
-
-/* SUCCESS MESSAGE */
+.form-submit { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+.form-note { font-size: 12px; color: var(--stone); }
 .form-success {
   display: none;
   background: var(--moss);
@@ -867,7 +773,6 @@ nav {
   line-height: 1.6;
   margin-top: 8px;
 }
-
 .form-success.show { display: block; animation: fadeUp 0.4s ease; }
 
 /* ─── FOOTER ─── */
@@ -879,7 +784,6 @@ footer {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
 }
-
 .footer-brand h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
@@ -888,14 +792,12 @@ footer {
   margin-bottom: 12px;
   letter-spacing: 2px;
 }
-
 .footer-brand p {
   font-size: 13px;
   line-height: 1.8;
   color: var(--stone);
   max-width: 260px;
 }
-
 .footer-col h4 {
   font-size: 11px;
   letter-spacing: 3px;
@@ -903,13 +805,8 @@ footer {
   color: var(--bark);
   margin-bottom: 16px;
 }
-
 .footer-col ul { list-style: none; }
-
-.footer-col ul li {
-  margin-bottom: 10px;
-}
-
+.footer-col ul li { margin-bottom: 10px; }
 .footer-col ul li a {
   font-size: 13px;
   color: var(--stone);
@@ -917,9 +814,7 @@ footer {
   cursor: pointer;
   transition: color 0.2s;
 }
-
 .footer-col ul li a:hover { color: var(--sand); }
-
 .footer-bottom {
   background: var(--ink);
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -927,7 +822,7 @@ footer {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: rgba(154,142,126,0.5);
+  color: rgba(127,179,211,0.5);
 }
 
 /* ─── SEARCH OVERLAY ─── */
@@ -935,16 +830,14 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(42,32,24,0.85);
+  background: rgba(26,46,64,0.85);
   z-index: 200;
   align-items: flex-start;
   justify-content: center;
   padding-top: 120px;
   backdrop-filter: blur(4px);
 }
-
 .search-overlay.open { display: flex; animation: fadeIn 0.3s ease; }
-
 .search-box {
   background: var(--white);
   border-radius: 4px;
@@ -953,7 +846,6 @@ footer {
   overflow: hidden;
   box-shadow: 0 40px 80px rgba(0,0,0,0.4);
 }
-
 .search-input-wrap {
   display: flex;
   align-items: center;
@@ -961,7 +853,6 @@ footer {
   padding: 20px 24px;
   border-bottom: 1px solid var(--sand);
 }
-
 .search-input-wrap input {
   flex: 1;
   border: none;
@@ -971,7 +862,6 @@ footer {
   color: var(--soil);
   outline: none;
 }
-
 .search-close {
   background: none;
   border: none;
@@ -980,9 +870,7 @@ footer {
   cursor: pointer;
   line-height: 1;
 }
-
 .search-results { padding: 8px 0; max-height: 360px; overflow-y: auto; }
-
 .search-result-item {
   padding: 14px 24px;
   cursor: pointer;
@@ -991,20 +879,15 @@ footer {
   gap: 16px;
   align-items: center;
 }
-
 .search-result-item:hover { background: var(--surface); }
-
 .result-icon { font-size: 18px; }
-
 .result-text strong {
   display: block;
   font-size: 14px;
   color: var(--soil);
   margin-bottom: 3px;
 }
-
 .result-text span { font-size: 12px; color: var(--text-muted); }
-
 .search-empty {
   padding: 48px 24px;
   text-align: center;
@@ -1017,27 +900,23 @@ footer {
   from { opacity:0; transform:translateY(16px); }
   to   { opacity:1; transform:translateY(0); }
 }
-
 @keyframes fadeIn {
   from { opacity:0; }
   to   { opacity:1; }
 }
-
 .divider-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(184,149,106,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(39,174,96,0.3), transparent);
   margin: 0 60px;
 }
 
-/* ─── CREATIVE PAGE ─── */
+/* ─── CREATIVE ─── */
 .creative-tabs {
   display: flex;
-  gap: 0;
-  border-bottom: 1px solid rgba(52,152,219,0.3);
+  border-bottom: 1px solid rgba(39,174,96,0.2);
   padding: 0 60px;
   background: var(--white);
 }
-
 .creative-tab {
   padding: 18px 28px;
   font-family: 'Jost', sans-serif;
@@ -1052,21 +931,17 @@ footer {
   transition: all 0.3s;
   margin-bottom: -1px;
 }
-
 .creative-tab:hover { color: var(--earth); }
 .creative-tab.active { color: var(--earth); border-bottom-color: var(--bark); }
-
 .creative-panel { display: none; }
 .creative-panel.active { display: block; animation: pageIn 0.4s ease both; }
 
-/* POEMS */
 .poems-grid {
   padding: 48px 60px 80px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 28px;
 }
-
 .poem-card {
   background: var(--white);
   padding: 36px 32px;
@@ -1076,20 +951,17 @@ footer {
   position: relative;
   overflow: hidden;
 }
-
 .poem-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(184,149,106,0.04), transparent);
+  background: linear-gradient(135deg, rgba(39,174,96,0.04), transparent);
   pointer-events: none;
 }
-
 .poem-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(74,53,32,0.1);
+  box-shadow: 0 16px 40px rgba(26,82,118,0.1);
 }
-
 .poem-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
@@ -1097,7 +969,6 @@ footer {
   color: var(--soil);
   margin-bottom: 20px;
 }
-
 .poem-text {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
@@ -1106,7 +977,6 @@ footer {
   color: var(--text-muted);
   white-space: pre-line;
 }
-
 .poem-author {
   margin-top: 20px;
   font-size: 11px;
@@ -1114,12 +984,7 @@ footer {
   text-transform: uppercase;
   color: var(--bark);
 }
-
-/* SUBMIT POEM FORM */
-.submit-creative-wrap {
-  padding: 0 60px 80px;
-}
-
+.submit-creative-wrap { padding: 0 60px 80px; }
 .submit-creative-wrap h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
@@ -1127,25 +992,21 @@ footer {
   color: var(--soil);
   margin-bottom: 24px;
 }
-
 .submit-box {
   background: var(--white);
-  border: 1px solid rgba(184,149,106,0.2);
+  border: 1px solid rgba(39,174,96,0.2);
   border-radius: 2px;
   padding: 36px;
   max-width: 680px;
 }
-
 .submit-box .form-group { margin-bottom: 16px; }
 
-/* GALLERY */
 .gallery-grid {
   padding: 48px 60px 80px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
 }
-
 .gallery-item {
   border-radius: 2px;
   overflow: hidden;
@@ -1158,20 +1019,13 @@ footer {
   justify-content: center;
   transition: transform 0.3s;
 }
-
 .gallery-item:hover { transform: scale(1.02); }
-
 .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-.gallery-placeholder {
-  font-size: 64px;
-  line-height: 1;
-}
-
+.gallery-placeholder { font-size: 64px; line-height: 1; }
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(74,53,32,0.75);
+  background: rgba(26,82,118,0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1181,14 +1035,12 @@ footer {
   padding: 20px;
   text-align: center;
 }
-
 .gallery-overlay span {
   color: var(--cream);
   font-family: 'Cormorant Garamond', serif;
   font-size: 17px;
   font-style: italic;
 }
-
 .gallery-overlay small {
   color: var(--bark);
   font-size: 11px;
@@ -1196,10 +1048,8 @@ footer {
   text-transform: uppercase;
   margin-top: 8px;
 }
-
-/* UPLOAD BOX */
 .upload-box {
-  border: 2px dashed rgba(184,149,106,0.4);
+  border: 2px dashed rgba(39,174,96,0.4);
   border-radius: 4px;
   padding: 48px;
   text-align: center;
@@ -1208,39 +1058,19 @@ footer {
   background: var(--white);
   margin: 0 60px 40px;
 }
-
-.upload-box:hover {
-  border-color: var(--bark);
-  background: var(--cream);
-}
-
+.upload-box:hover { border-color: var(--bark); background: var(--cream); }
 .upload-icon { font-size: 40px; margin-bottom: 12px; }
+.upload-box p { font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+.upload-box small { font-size: 12px; color: var(--stone); }
 
-.upload-box p {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-}
-
-.upload-box small {
-  font-size: 12px;
-  color: var(--stone);
-}
-
-/* FORUM */
-.forum-wrap {
-  padding: 48px 60px 80px;
-  max-width: 860px;
-}
-
+.forum-wrap { padding: 48px 60px 80px; max-width: 860px; }
 .forum-new-post {
   background: var(--white);
-  border: 1px solid rgba(184,149,106,0.2);
+  border: 1px solid rgba(39,174,96,0.2);
   border-radius: 2px;
   padding: 28px 32px;
   margin-bottom: 40px;
 }
-
 .forum-new-post h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
@@ -1248,9 +1078,7 @@ footer {
   color: var(--soil);
   margin-bottom: 20px;
 }
-
 .forum-threads { display: flex; flex-direction: column; gap: 2px; }
-
 .forum-thread {
   background: var(--white);
   padding: 24px 28px;
@@ -1261,12 +1089,7 @@ footer {
   transition: border-color 0.3s, background 0.3s;
   cursor: pointer;
 }
-
-.forum-thread:hover {
-  border-left-color: var(--bark);
-  background: var(--cream);
-}
-
+.forum-thread:hover { border-left-color: var(--bark); background: var(--cream); }
 .thread-avatar {
   width: 44px; height: 44px;
   border-radius: 50%;
@@ -1277,9 +1100,7 @@ footer {
   font-size: 20px;
   flex-shrink: 0;
 }
-
 .thread-body { flex: 1; }
-
 .thread-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
@@ -1287,31 +1108,12 @@ footer {
   color: var(--soil);
   margin-bottom: 6px;
 }
-
-.thread-preview {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.thread-meta {
-  display: flex;
-  gap: 16px;
-  font-size: 11px;
-  color: var(--stone);
-  letter-spacing: 0.5px;
-}
-
+.thread-preview { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
+.thread-meta { display: flex; gap: 16px; font-size: 11px; color: var(--stone); letter-spacing: 0.5px; }
 .thread-meta span { display: flex; align-items: center; gap: 4px; }
+.thread-replies { font-size: 13px; color: var(--bark); font-weight: 500; white-space: nowrap; padding-top: 4px; }
 
-.thread-replies {
-  font-size: 13px;
-  color: var(--bark);
-  font-weight: 500;
-  white-space: nowrap;
-  padding-top: 4px;
-}
+/* ─── GOV & SLAVIC ─── */
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -1340,7 +1142,6 @@ footer {
   .submit-creative-wrap { padding: 0 20px 60px; }
 }
 </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -1354,6 +1155,8 @@ footer {
     <li><a onclick="showPage('philosophy')" id="nav-philosophy">Философия</a></li>
     <li><a onclick="showPage('stories')" id="nav-stories">Истории</a></li>
     <li><a onclick="showPage('creative')" id="nav-creative">Творчество</a></li>
+    <li><a onclick="showPage('gov')" id="nav-gov">Власть</a></li>
+    <li><a onclick="showPage('slavic')" id="nav-slavic">Славяне</a></li>
     <li><a onclick="showPage('contact')" id="nav-contact">Контакт</a></li>
   </ul>
   <div class="nav-search" onclick="openSearch()">
@@ -1376,11 +1179,8 @@ footer {
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-     PAGE: HOME
-════════════════════════════════════════ -->
+<!-- ═══ HOME ═══ -->
 <div class="page active" id="page-home">
-
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-rings"></div>
@@ -1421,7 +1221,7 @@ footer {
       <div class="card-link">Читать истории →</div>
     </div>
     <div class="home-card" onclick="showPage('contact')">
-      <div class="card-num">07</div>
+      <div class="card-num">05</div>
       <h3>Задать вопрос</h3>
       <p>Есть вопрос или хотите поделиться своим опытом? Напишите — ответим каждому.</p>
       <div class="card-link">Написать →</div>
@@ -1429,14 +1229,20 @@ footer {
     <div class="home-card" onclick="showPage('creative')">
       <div class="card-num">06</div>
       <h3>Творчество</h3>
-      <p>Стихи, образы, картины — место где осознание выражает себя через искусство. Делитесь и обсуждайте.</p>
-      <div class="card-link">В галерею →</div>
-    </div>
-    <div class="home-card" onclick="showPage('creative')">
-      <div class="card-num">06</div>
-      <h3>Творчество</h3>
       <p>Стихи, галерея образов и обсуждения — пространство для совместного творческого поиска.</p>
       <div class="card-link">В творческий раздел →</div>
+    </div>
+    <div class="home-card" onclick="showPage('gov')">
+      <div class="card-num">07</div>
+      <h3>Мировое правительство</h3>
+      <p>Кто стоит за кулисами мировых событий? Как устроена власть на планете и куда она ведёт человечество.</p>
+      <div class="card-link">Исследовать →</div>
+    </div>
+    <div class="home-card" onclick="showPage('slavic')">
+      <div class="card-num">08</div>
+      <h3>Истинная история славян</h3>
+      <p>Забытые корни, древние цивилизации, подлинная история народа — до переписывания учебников.</p>
+      <div class="card-link">Читать →</div>
     </div>
     <div class="home-card" onclick="openSearch()">
       <div class="card-num">🔍</div>
@@ -1456,51 +1262,37 @@ footer {
       <h3>Исток</h3>
       <p>Пространство для тех, кто ищет не информацию, а понимание. Осознание как путь, а не цель.</p>
     </div>
-    <div class="footer-col">
-      <h4>Разделы</h4>
-      <ul>
-        <li><a onclick="showPage('blog')">Статьи</a></li>
-        <li><a onclick="showPage('practices')">Практики</a></li>
-        <li><a onclick="showPage('philosophy')">Философия</a></li>
-        <li><a onclick="showPage('stories')">Истории</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Темы</h4>
-      <ul>
-        <li><a>Осознание</a></li>
-        <li><a>Медитация</a></li>
-        <li><a>Убеждения</a></li>
-        <li><a>Мудрецы</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Прочее</h4>
-      <ul>
-        <li><a onclick="showPage('stories')">Об авторе</a></li>
-        <li><a onclick="showPage('contact')">Контакты</a></li>
-        <li><a>Политика</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h4>Разделы</h4><ul>
+      <li><a onclick="showPage('blog')">Статьи</a></li>
+      <li><a onclick="showPage('practices')">Практики</a></li>
+      <li><a onclick="showPage('philosophy')">Философия</a></li>
+      <li><a onclick="showPage('stories')">Истории</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Темы</h4><ul>
+      <li><a>Осознание</a></li>
+      <li><a>Медитация</a></li>
+      <li><a>Убеждения</a></li>
+      <li><a>Мудрецы</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Прочее</h4><ul>
+      <li><a onclick="showPage('stories')">Об авторе</a></li>
+      <li><a onclick="showPage('contact')">Контакты</a></li>
+      <li><a>Политика</a></li>
+    </ul></div>
   </footer>
   <div class="footer-bottom">
     <span>© 2026 Исток. Все права защищены.</span>
     <span>Сделано с намерением</span>
   </div>
-
 </div>
 
-<!-- ═══════════════════════════════════════
-     PAGE: BLOG
-════════════════════════════════════════ -->
+<!-- ═══ BLOG ═══ -->
 <div class="page" id="page-blog">
-
   <div class="section-header">
     <span class="eyebrow">Раздел 01 · Статьи</span>
     <h2>Блог & <em>Публикации</em></h2>
     <p>Тексты об осознании, природе знания и внутреннем пути — написанные для вдумчивого чтения.</p>
   </div>
-
   <div class="blog-filters">
     <button class="filter-btn active" onclick="filterBlog('all', this)">Все</button>
     <button class="filter-btn" onclick="filterBlog('awareness', this)">Осознание</button>
@@ -1508,12 +1300,10 @@ footer {
     <button class="filter-btn" onclick="filterBlog('practice', this)">Практика</button>
     <button class="filter-btn" onclick="filterBlog('philosophy', this)">Философия</button>
   </div>
-
   <div class="blog-grid" id="blogGrid">
     <div class="blog-card" data-tag="awareness">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#E8D5B0,#C4A97A)">🌄</div>
-      <div class="blog-body">
-        <span class="blog-tag">Осознание</span>
+      <div class="blog-body"><span class="blog-tag">Осознание</span>
         <h3>Что значит быть по-настоящему осознанным?</h3>
         <p>Осознанность — это не медитация и не йога. Это способность видеть себя со стороны в любой момент жизни.</p>
         <div class="blog-meta"><span>12 мин чтения</span><span>·</span><span>Март 2026</span></div>
@@ -1521,8 +1311,7 @@ footer {
     </div>
     <div class="blog-card" data-tag="knowledge">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#C8D5B0,#8FA97A)">📚</div>
-      <div class="blog-body">
-        <span class="blog-tag">Знание</span>
+      <div class="blog-body"><span class="blog-tag">Знание</span>
         <h3>Разница между знанием и информацией</h3>
         <p>Мы живём в эпоху переизбытка информации. Но почему при этом так мало людей обладают настоящим знанием?</p>
         <div class="blog-meta"><span>8 мин чтения</span><span>·</span><span>Февраль 2026</span></div>
@@ -1530,8 +1319,7 @@ footer {
     </div>
     <div class="blog-card" data-tag="practice">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#B0C8D5,#7A8FA9)">🌊</div>
-      <div class="blog-body">
-        <span class="blog-tag">Практика</span>
+      <div class="blog-body"><span class="blog-tag">Практика</span>
         <h3>Три минуты тишины: как начать</h3>
         <p>Самая простая практика осознанности, которую можно делать прямо сейчас, без подготовки и коврика для йоги.</p>
         <div class="blog-meta"><span>5 мин чтения</span><span>·</span><span>Январь 2026</span></div>
@@ -1539,8 +1327,7 @@ footer {
     </div>
     <div class="blog-card" data-tag="philosophy">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#D5B0C8,#A97A8F)">🏛️</div>
-      <div class="blog-body">
-        <span class="blog-tag">Философия</span>
+      <div class="blog-body"><span class="blog-tag">Философия</span>
         <h3>Сократ и вопрос «Что ты знаешь?»</h3>
         <p>«Я знаю, что ничего не знаю» — возможно, самое важное высказывание в истории человеческой мысли.</p>
         <div class="blog-meta"><span>10 мин чтения</span><span>·</span><span>Декабрь 2025</span></div>
@@ -1548,8 +1335,7 @@ footer {
     </div>
     <div class="blog-card" data-tag="awareness">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#D5C8B0,#A99A7A)">🕯️</div>
-      <div class="blog-body">
-        <span class="blog-tag">Осознание</span>
+      <div class="blog-body"><span class="blog-tag">Осознание</span>
         <h3>Иллюзия контроля и как с ней работать</h3>
         <p>Мы думаем, что управляем своей жизнью. Но первый шаг к осознанности — признать, что это не совсем так.</p>
         <div class="blog-meta"><span>9 мин чтения</span><span>·</span><span>Ноябрь 2025</span></div>
@@ -1557,15 +1343,13 @@ footer {
     </div>
     <div class="blog-card" data-tag="knowledge">
       <div class="blog-thumb" style="background:linear-gradient(135deg,#C8B0D5,#8F7AA9)">🔮</div>
-      <div class="blog-body">
-        <span class="blog-tag">Знание</span>
+      <div class="blog-body"><span class="blog-tag">Знание</span>
         <h3>Как проверить, истинно ли то, во что ты веришь</h3>
         <p>Практическое руководство по работе с убеждениями — без эзотерики, но с глубиной.</p>
         <div class="blog-meta"><span>11 мин чтения</span><span>·</span><span>Октябрь 2025</span></div>
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
     <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('practices')">Практики</a></li><li><a onclick="showPage('philosophy')">Философия</a></li></ul></div>
@@ -1573,71 +1357,47 @@ footer {
     <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти статью</a></li></ul></div>
   </footer>
   <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
 </div>
 
-<!-- ═══════════════════════════════════════
-     PAGE: PRACTICES
-════════════════════════════════════════ -->
+<!-- ═══ PRACTICES ═══ -->
 <div class="page" id="page-practices">
-
   <div class="section-header">
     <span class="eyebrow">Раздел 02 · Практики</span>
     <h2>Упражнения & <em>Инструменты</em></h2>
     <p>Конкретные практики для развития осознанности — от простых до глубоких. Каждая проверена и работает без специальной подготовки.</p>
   </div>
-
   <div class="practices-list">
     <div class="practice-item">
       <div class="practice-icon">🌬️</div>
-      <div class="practice-content">
-        <h3>Дыхание 4-7-8</h3>
-        <p>Простейшая техника для быстрого возвращения в настоящий момент. Вдох на 4 счёта, задержка на 7, выдох на 8. Успокаивает нервную систему и возвращает контроль над вниманием.</p>
-      </div>
+      <div class="practice-content"><h3>Дыхание 4-7-8</h3><p>Простейшая техника для быстрого возвращения в настоящий момент. Вдох на 4 счёта, задержка на 7, выдох на 8. Успокаивает нервную систему и возвращает контроль над вниманием.</p></div>
       <div class="practice-duration"><strong>5</strong>минут</div>
     </div>
     <div class="practice-item">
       <div class="practice-icon">📓</div>
-      <div class="practice-content">
-        <h3>Дневник осознанности</h3>
-        <p>Каждое утро — три вопроса: Что я чувствую? Что я думаю? Что я хочу сегодня? Письменная практика помогает увидеть свои паттерны и убеждения со стороны.</p>
-      </div>
+      <div class="practice-content"><h3>Дневник осознанности</h3><p>Каждое утро — три вопроса: Что я чувствую? Что я думаю? Что я хочу сегодня? Письменная практика помогает увидеть свои паттерны и убеждения со стороны.</p></div>
       <div class="practice-duration"><strong>10</strong>минут</div>
     </div>
     <div class="practice-item">
       <div class="practice-icon">🔍</div>
-      <div class="practice-content">
-        <h3>Исследование убеждения</h3>
-        <p>Возьмите одно убеждение, которое вас ограничивает. Задайте ему четыре вопроса из метода Байрон Кейти: Это правда? Я могу знать это точно? Как я себя чувствую с этой мыслью? Кем бы я был без неё?</p>
-      </div>
+      <div class="practice-content"><h3>Исследование убеждения</h3><p>Возьмите одно убеждение, которое вас ограничивает. Задайте ему четыре вопроса из метода Байрон Кейти: Это правда? Я могу знать это точно? Как я себя чувствую с этой мыслью? Кем бы я был без неё?</p></div>
       <div class="practice-duration"><strong>20</strong>минут</div>
     </div>
     <div class="practice-item">
       <div class="practice-icon">🌳</div>
-      <div class="practice-content">
-        <h3>Практика присутствия в природе</h3>
-        <p>30 минут на улице без телефона. Задача — замечать: пять вещей, которые видите, четыре — которые слышите, три — которых касаетесь. Это перезагружает ум и выводит из автопилота.</p>
-      </div>
+      <div class="practice-content"><h3>Практика присутствия в природе</h3><p>30 минут на улице без телефона. Задача — замечать: пять вещей, которые видите, четыре — которые слышите, три — которых касаетесь. Это перезагружает ум и выводит из автопилота.</p></div>
       <div class="practice-duration"><strong>30</strong>минут</div>
     </div>
     <div class="practice-item">
       <div class="practice-icon">🪞</div>
-      <div class="practice-content">
-        <h3>Медитация самонаблюдения</h3>
-        <p>Сядьте удобно, закройте глаза. Не пытайтесь остановить мысли — просто наблюдайте за ними, как за облаками. Вы — не мысли, вы — тот, кто их наблюдает. Ключевой опыт осознания.</p>
-      </div>
+      <div class="practice-content"><h3>Медитация самонаблюдения</h3><p>Сядьте удобно, закройте глаза. Не пытайтесь остановить мысли — просто наблюдайте за ними, как за облаками. Вы — не мысли, вы — тот, кто их наблюдает. Ключевой опыт осознания.</p></div>
       <div class="practice-duration"><strong>15</strong>минут</div>
     </div>
     <div class="practice-item">
       <div class="practice-icon">❓</div>
-      <div class="practice-content">
-        <h3>Метод «Пять почему»</h3>
-        <p>Когда вы реагируете на что-то сильно — злитесь, обижаетесь, боитесь — задайте вопрос «почему?» пять раз подряд. Каждый раз глубже. На пятом уровне обычно открывается настоящая причина.</p>
-      </div>
+      <div class="practice-content"><h3>Метод «Пять почему»</h3><p>Когда вы реагируете на что-то сильно — злитесь, обижаетесь, боитесь — задайте вопрос «почему?» пять раз подряд. Каждый раз глубже. На пятом уровне обычно открывается настоящая причина.</p></div>
       <div class="practice-duration"><strong>10</strong>минут</div>
     </div>
   </div>
-
   <footer>
     <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
     <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('blog')">Статьи</a></li><li><a onclick="showPage('philosophy')">Философия</a></li></ul></div>
@@ -1645,73 +1405,24 @@ footer {
     <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
   </footer>
   <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
 </div>
 
-<!-- ═══════════════════════════════════════
-     PAGE: PHILOSOPHY
-════════════════════════════════════════ -->
+<!-- ═══ PHILOSOPHY ═══ -->
 <div class="page" id="page-philosophy">
-
   <div class="section-header">
     <span class="eyebrow">Раздел 03 · Философия</span>
     <h2>Мудрецы & <em>Учения</em></h2>
     <p>Великие мыслители, которые посвятили жизнь вопросам сознания, истины и природы знания.</p>
   </div>
-
   <div class="philo-grid">
-    <div class="philo-teacher">
-      <div class="teacher-avatar">🏛️</div>
-      <div class="teacher-info">
-        <h3>Сократ</h3>
-        <span class="teacher-era">470–399 до н.э. · Греция</span>
-        <p>Отец западной философии. Утверждал, что истинное знание начинается с признания собственного незнания. Его метод — задавать вопросы — остаётся мощнейшим инструментом самопознания.</p>
-      </div>
-    </div>
-    <div class="philo-teacher">
-      <div class="teacher-avatar">☯️</div>
-      <div class="teacher-info">
-        <h3>Лао-цзы</h3>
-        <span class="teacher-era">VI век до н.э. · Китай</span>
-        <p>Автор «Дао дэ цзин». Учил, что истинное знание — это тихое понимание природы вещей, достигаемое не через усилие, а через недеяние и внутреннюю тишину.</p>
-      </div>
-    </div>
-    <div class="philo-teacher">
-      <div class="teacher-avatar">🕉️</div>
-      <div class="teacher-info">
-        <h3>Будда Шакьямуни</h3>
-        <span class="teacher-era">563–483 до н.э. · Индия</span>
-        <p>Указал на страдание как следствие неосознанности и предложил путь через наблюдение ума. Его учение — одна из наиболее практически разработанных систем осознания.</p>
-      </div>
-    </div>
-    <div class="philo-teacher">
-      <div class="teacher-avatar">🌀</div>
-      <div class="teacher-info">
-        <h3>Джидду Кришнамурти</h3>
-        <span class="teacher-era">1895–1986 · Индия / мир</span>
-        <p>Отверг все авторитеты и учения. Настаивал на том, что истину нельзя передать — её можно только открыть самому, через прямое наблюдение без посредников и концепций.</p>
-      </div>
-    </div>
-    <div class="philo-teacher">
-      <div class="teacher-avatar">📿</div>
-      <div class="teacher-info">
-        <h3>Рамана Махарши</h3>
-        <span class="teacher-era">1879–1950 · Индия</span>
-        <p>Учил единственному вопросу: «Кто я?» Самоисследование — прямой путь к осознанию своей истинной природы за пределами мыслей, ролей и убеждений.</p>
-      </div>
-    </div>
-    <div class="philo-teacher">
-      <div class="teacher-avatar">🧠</div>
-      <div class="teacher-info">
-        <h3>Экхарт Толле</h3>
-        <span class="teacher-era">р. 1948 · Германия / Канада</span>
-        <p>Автор «Сила настоящего момента». Описал пробуждение как выход из мышления о прошлом и будущем — в живое присутствие здесь и сейчас.</p>
-      </div>
-    </div>
+    <div class="philo-teacher"><div class="teacher-avatar">🏛️</div><div class="teacher-info"><h3>Сократ</h3><span class="teacher-era">470–399 до н.э. · Греция</span><p>Отец западной философии. Утверждал, что истинное знание начинается с признания собственного незнания. Его метод — задавать вопросы — остаётся мощнейшим инструментом самопознания.</p></div></div>
+    <div class="philo-teacher"><div class="teacher-avatar">☯️</div><div class="teacher-info"><h3>Лао-цзы</h3><span class="teacher-era">VI век до н.э. · Китай</span><p>Автор «Дао дэ цзин». Учил, что истинное знание — это тихое понимание природы вещей, достигаемое не через усилие, а через недеяние и внутреннюю тишину.</p></div></div>
+    <div class="philo-teacher"><div class="teacher-avatar">🕉️</div><div class="teacher-info"><h3>Будда Шакьямуни</h3><span class="teacher-era">563–483 до н.э. · Индия</span><p>Указал на страдание как следствие неосознанности и предложил путь через наблюдение ума. Его учение — одна из наиболее практически разработанных систем осознания.</p></div></div>
+    <div class="philo-teacher"><div class="teacher-avatar">🌀</div><div class="teacher-info"><h3>Джидду Кришнамурти</h3><span class="teacher-era">1895–1986 · Индия / мир</span><p>Отверг все авторитеты и учения. Настаивал на том, что истину нельзя передать — её можно только открыть самому, через прямое наблюдение без посредников и концепций.</p></div></div>
+    <div class="philo-teacher"><div class="teacher-avatar">📿</div><div class="teacher-info"><h3>Рамана Махарши</h3><span class="teacher-era">1879–1950 · Индия</span><p>Учил единственному вопросу: «Кто я?» Самоисследование — прямой путь к осознанию своей истинной природы за пределами мыслей, ролей и убеждений.</p></div></div>
+    <div class="philo-teacher"><div class="teacher-avatar">🧠</div><div class="teacher-info"><h3>Экхарт Толле</h3><span class="teacher-era">р. 1948 · Германия / Канада</span><p>Автор «Сила настоящего момента». Описал пробуждение как выход из мышления о прошлом и будущем — в живое присутствие здесь и сейчас.</p></div></div>
   </div>
-
   <div class="divider-line"></div>
-
   <div class="philo-books">
     <h2 class="books-title">Рекомендуемые книги</h2>
     <ul class="books-list">
@@ -1725,7 +1436,6 @@ footer {
       <li class="book-item"><strong>Феноменология духа</strong><span>Гегель</span></li>
     </ul>
   </div>
-
   <footer>
     <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
     <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('blog')">Статьи</a></li><li><a onclick="showPage('practices')">Практики</a></li></ul></div>
@@ -1733,14 +1443,10 @@ footer {
     <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
   </footer>
   <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
 </div>
 
-<!-- ═══════════════════════════════════════
-     PAGE: STORIES
-════════════════════════════════════════ -->
+<!-- ═══ STORIES ═══ -->
 <div class="page" id="page-stories">
-
   <div class="stories-author">
     <div class="author-visual">🌿</div>
     <div class="author-text">
@@ -1751,37 +1457,17 @@ footer {
       <p>Здесь нет готовых ответов. Есть честный поиск и приглашение искать вместе.</p>
     </div>
   </div>
-
   <div class="testimonials">
     <h2>Истории читателей</h2>
     <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p>Статья про убеждения перевернула моё отношение к конфликтам с близкими. Я понял, что всё время защищал не себя, а свою картину мира.</p>
-        <div class="testimonial-author">Алексей, 34 года · Москва</div>
-      </div>
-      <div class="testimonial-card">
-        <p>Практика «Пять почему» помогла мне понять, почему я так боюсь неудачи. Оказалось, это вовсе не про работу, а про детство. Спасибо за простоту подачи.</p>
-        <div class="testimonial-author">Марина, 28 лет · Санкт-Петербург</div>
-      </div>
-      <div class="testimonial-card">
-        <p>Я скептик и не верю в «духовность». Но тексты здесь написаны честно, без пафоса. Начал вести дневник осознанности — работает.</p>
-        <div class="testimonial-author">Дмитрий, 41 год · Новосибирск</div>
-      </div>
-      <div class="testimonial-card">
-        <p>Долго искала что-то «своё» среди сотен сайтов про медитацию. Здесь нашла. Особенно ценю, что автор не притворяется, что у него есть все ответы.</p>
-        <div class="testimonial-author">Светлана, 36 лет · Екатеринбург</div>
-      </div>
-      <div class="testimonial-card">
-        <p>Прочитал всё за два вечера. Потом перечитывал медленно. Статья про разницу между знанием и информацией — лучшее, что я читал на русском за год.</p>
-        <div class="testimonial-author">Роман, 29 лет · Казань</div>
-      </div>
-      <div class="testimonial-card">
-        <p>После практики самонаблюдения впервые почувствовала, что мои мысли — это не я. Это был маленький, но очень важный момент.</p>
-        <div class="testimonial-author">Анна, 32 года · Минск</div>
-      </div>
+      <div class="testimonial-card"><p>Статья про убеждения перевернула моё отношение к конфликтам с близкими. Я понял, что всё время защищал не себя, а свою картину мира.</p><div class="testimonial-author">Алексей, 34 года · Москва</div></div>
+      <div class="testimonial-card"><p>Практика «Пять почему» помогла мне понять, почему я так боюсь неудачи. Оказалось, это вовсе не про работу, а про детство. Спасибо за простоту подачи.</p><div class="testimonial-author">Марина, 28 лет · Санкт-Петербург</div></div>
+      <div class="testimonial-card"><p>Я скептик и не верю в «духовность». Но тексты здесь написаны честно, без пафоса. Начал вести дневник осознанности — работает.</p><div class="testimonial-author">Дмитрий, 41 год · Новосибирск</div></div>
+      <div class="testimonial-card"><p>Долго искала что-то «своё» среди сотен сайтов про медитацию. Здесь нашла. Особенно ценю, что автор не притворяется, что у него есть все ответы.</p><div class="testimonial-author">Светлана, 36 лет · Екатеринбург</div></div>
+      <div class="testimonial-card"><p>Прочитал всё за два вечера. Потом перечитывал медленно. Статья про разницу между знанием и информацией — лучшее, что я читал на русском за год.</p><div class="testimonial-author">Роман, 29 лет · Казань</div></div>
+      <div class="testimonial-card"><p>После практики самонаблюдения впервые почувствовала, что мои мысли — это не я. Это был маленький, но очень важный момент.</p><div class="testimonial-author">Анна, 32 года · Минск</div></div>
     </div>
   </div>
-
   <footer>
     <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
     <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('blog')">Статьи</a></li><li><a onclick="showPage('practices')">Практики</a></li></ul></div>
@@ -1789,247 +1475,103 @@ footer {
     <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
   </footer>
   <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
 </div>
 
-<!-- ═══════════════════════════════════════
-     PAGE: CREATIVE
-════════════════════════════════════════ -->
+<!-- ═══ CREATIVE ═══ -->
 <div class="page" id="page-creative">
-
   <div class="section-header">
     <span class="eyebrow">Раздел 06 · Творчество</span>
     <h2>Творческое <em>пространство</em></h2>
     <p>Стихи, образы и живые обсуждения — здесь осознание выражает себя через искусство и слово.</p>
   </div>
-
-  <!-- TABS -->
   <div class="creative-tabs">
     <button class="creative-tab active" onclick="switchTab('poems', this)">🖋️ Стихи</button>
     <button class="creative-tab" onclick="switchTab('gallery', this)">🎨 Галерея</button>
     <button class="creative-tab" onclick="switchTab('forum', this)">💬 Обсуждения</button>
   </div>
 
-  <!-- PANEL: POEMS -->
   <div class="creative-panel active" id="panel-poems">
-
     <div class="poems-grid" id="poemsGrid">
-      <div class="poem-card">
-        <div class="poem-title">Тишина</div>
-        <div class="poem-text">В тишине между словами
+      <div class="poem-card"><div class="poem-title">Тишина</div><div class="poem-text">В тишине между словами
 живёт то, что слова не скажут.
 Я слушаю — и слышу сам себя
-впервые.</div>
-        <div class="poem-author">Автор сайта · Март 2026</div>
-      </div>
-      <div class="poem-card">
-        <div class="poem-title">Наблюдатель</div>
-        <div class="poem-text">Мысли проходят — как облака.
+впервые.</div><div class="poem-author">Автор сайта · Март 2026</div></div>
+      <div class="poem-card"><div class="poem-title">Наблюдатель</div><div class="poem-text">Мысли проходят — как облака.
 Я не облако. Я — небо,
 в котором им есть место.
-И этого достаточно.</div>
-        <div class="poem-author">Елена К. · Февраль 2026</div>
-      </div>
-      <div class="poem-card">
-        <div class="poem-title">Вопрос</div>
-        <div class="poem-text">«Кто ты?» — спросил я зеркало.
+И этого достаточно.</div><div class="poem-author">Елена К. · Февраль 2026</div></div>
+      <div class="poem-card"><div class="poem-title">Вопрос</div><div class="poem-text">«Кто ты?» — спросил я зеркало.
 Зеркало молчало.
 Именно тогда я понял:
-ответ не снаружи.</div>
-        <div class="poem-author">Михаил Т. · Январь 2026</div>
-      </div>
-      <div class="poem-card">
-        <div class="poem-title">Момент</div>
-        <div class="poem-text">Прошлое — след на воде.
+ответ не снаружи.</div><div class="poem-author">Михаил Т. · Январь 2026</div></div>
+      <div class="poem-card"><div class="poem-title">Момент</div><div class="poem-text">Прошлое — след на воде.
 Будущее — ещё не вода.
 Есть только сейчас —
-бесконечно маленькое и огромное.</div>
-        <div class="poem-author">Анастасия · Декабрь 2025</div>
-      </div>
-      <div class="poem-card">
-        <div class="poem-title">Путь</div>
-        <div class="poem-text">Я шёл туда, где ответ.
+бесконечно маленькое и огромное.</div><div class="poem-author">Анастасия · Декабрь 2025</div></div>
+      <div class="poem-card"><div class="poem-title">Путь</div><div class="poem-text">Я шёл туда, где ответ.
 Но ответа там не было.
 Зато был я — ищущий.
-И это оказалось важнее.</div>
-        <div class="poem-author">Игорь В. · Ноябрь 2025</div>
-      </div>
-      <div class="poem-card">
-        <div class="poem-title">Знание</div>
-        <div class="poem-text">Не то, что прочитал —
+И это оказалось важнее.</div><div class="poem-author">Игорь В. · Ноябрь 2025</div></div>
+      <div class="poem-card"><div class="poem-title">Знание</div><div class="poem-text">Не то, что прочитал —
 а то, что прожил в тишине.
 Не слово о воде —
-а вкус воды на языке.</div>
-        <div class="poem-author">Автор сайта · Октябрь 2025</div>
-      </div>
+а вкус воды на языке.</div><div class="poem-author">Автор сайта · Октябрь 2025</div></div>
     </div>
-
     <div class="submit-creative-wrap">
       <h3>Поделитесь своим стихотворением</h3>
       <div class="submit-box">
-        <div class="form-group">
-          <label>Ваше имя или псевдоним</label>
-          <input type="text" id="p-author" placeholder="Как вас подписать?">
-        </div>
-        <div class="form-group">
-          <label>Название стихотворения</label>
-          <input type="text" id="p-title" placeholder="Название...">
-        </div>
-        <div class="form-group">
-          <label>Текст стихотворения</label>
-          <textarea id="p-text" style="min-height:160px; font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic;" placeholder="Строфа за строфой..."></textarea>
-        </div>
-        <div class="form-submit">
-          <button class="btn-primary" onclick="submitPoem()">Опубликовать стихотворение</button>
-        </div>
+        <div class="form-group"><label>Ваше имя или псевдоним</label><input type="text" id="p-author" placeholder="Как вас подписать?"></div>
+        <div class="form-group"><label>Название стихотворения</label><input type="text" id="p-title" placeholder="Название..."></div>
+        <div class="form-group"><label>Текст стихотворения</label><textarea id="p-text" style="min-height:160px;font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;" placeholder="Строфа за строфой..."></textarea></div>
+        <div class="form-submit"><button class="btn-primary" onclick="submitPoem()">Опубликовать стихотворение</button></div>
         <div class="form-success" id="poemSuccess">✓ Стихотворение отправлено на модерацию. Спасибо!</div>
       </div>
     </div>
-
   </div>
 
-  <!-- PANEL: GALLERY -->
   <div class="creative-panel" id="panel-gallery">
-
     <div class="upload-box" onclick="document.getElementById('imgUpload').click()">
       <input type="file" id="imgUpload" accept="image/*" style="display:none" onchange="previewImage(this)">
       <div class="upload-icon">🖼️</div>
       <p>Нажмите, чтобы загрузить картину или иллюстрацию</p>
       <small>PNG, JPG, WEBP · до 10 МБ</small>
     </div>
-    <div id="uploadPreview" style="display:none; padding:0 60px 32px;">
-      <div style="background:var(--white);border:1px solid rgba(184,149,106,0.2);border-radius:2px;padding:24px;max-width:500px;">
+    <div id="uploadPreview" style="display:none;padding:0 60px 32px;">
+      <div style="background:var(--white);border:1px solid rgba(39,174,96,0.2);border-radius:2px;padding:24px;max-width:500px;">
         <img id="previewImg" style="width:100%;border-radius:2px;margin-bottom:16px;" alt="Preview">
-        <div class="form-group" style="margin-bottom:12px;">
-          <label>Название работы</label>
-          <input type="text" id="img-title" placeholder="Как называется работа?">
-        </div>
-        <div class="form-group" style="margin-bottom:16px;">
-          <label>Автор</label>
-          <input type="text" id="img-author" placeholder="Ваше имя">
-        </div>
+        <div class="form-group" style="margin-bottom:12px;"><label>Название работы</label><input type="text" id="img-title" placeholder="Как называется работа?"></div>
+        <div class="form-group" style="margin-bottom:16px;"><label>Автор</label><input type="text" id="img-author" placeholder="Ваше имя"></div>
         <button class="btn-primary" onclick="submitImage()">Опубликовать в галерею</button>
         <div class="form-success" id="imgSuccess" style="margin-top:12px;">✓ Работа отправлена на модерацию!</div>
       </div>
     </div>
-
     <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item" style="background:linear-gradient(135deg,#D4C4A8,#A8926E)">
-        <div class="gallery-placeholder">🌅</div>
-        <div class="gallery-overlay"><span>Рассвет сознания</span><small>Анна М.</small></div>
-      </div>
-      <div class="gallery-item" style="background:linear-gradient(135deg,#B8C8A8,#7A9A68)">
-        <div class="gallery-placeholder">🌿</div>
-        <div class="gallery-overlay"><span>Корни и ветви</span><small>Дмитрий О.</small></div>
-      </div>
-      <div class="gallery-item" style="background:linear-gradient(135deg,#C8B8D8,#8878A8)">
-        <div class="gallery-placeholder">🌀</div>
-        <div class="gallery-overlay"><span>Вихрь мыслей</span><small>Светлана Р.</small></div>
-      </div>
-      <div class="gallery-item" style="background:linear-gradient(135deg,#D8C8A8,#B89870)">
-        <div class="gallery-placeholder">◎</div>
-        <div class="gallery-overlay"><span>Центр</span><small>Автор сайта</small></div>
-      </div>
-      <div class="gallery-item" style="background:linear-gradient(135deg,#A8C8C8,#688888)">
-        <div class="gallery-placeholder">🕊️</div>
-        <div class="gallery-overlay"><span>Освобождение</span><small>Ирина К.</small></div>
-      </div>
-      <div class="gallery-item" style="background:linear-gradient(135deg,#D8A8A8,#A87070)">
-        <div class="gallery-placeholder">🔥</div>
-        <div class="gallery-overlay"><span>Внутренний огонь</span><small>Роман Д.</small></div>
-      </div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#D4C4A8,#A8926E)"><div class="gallery-placeholder">🌅</div><div class="gallery-overlay"><span>Рассвет сознания</span><small>Анна М.</small></div></div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#B8C8A8,#7A9A68)"><div class="gallery-placeholder">🌿</div><div class="gallery-overlay"><span>Корни и ветви</span><small>Дмитрий О.</small></div></div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#C8B8D8,#8878A8)"><div class="gallery-placeholder">🌀</div><div class="gallery-overlay"><span>Вихрь мыслей</span><small>Светлана Р.</small></div></div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#D8C8A8,#B89870)"><div class="gallery-placeholder">◎</div><div class="gallery-overlay"><span>Центр</span><small>Автор сайта</small></div></div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#A8C8C8,#688888)"><div class="gallery-placeholder">🕊️</div><div class="gallery-overlay"><span>Освобождение</span><small>Ирина К.</small></div></div>
+      <div class="gallery-item" style="background:linear-gradient(135deg,#D8A8A8,#A87070)"><div class="gallery-placeholder">🔥</div><div class="gallery-overlay"><span>Внутренний огонь</span><small>Роман Д.</small></div></div>
     </div>
-
   </div>
 
-  <!-- PANEL: FORUM -->
   <div class="creative-panel" id="panel-forum">
     <div class="forum-wrap">
-
       <div class="forum-new-post">
         <h3>Начать обсуждение</h3>
-        <div class="form-group" style="margin-bottom:12px;">
-          <label>Ваше имя</label>
-          <input type="text" id="th-author" placeholder="Как вас зовут?">
-        </div>
-        <div class="form-group" style="margin-bottom:12px;">
-          <label>Тема обсуждения</label>
-          <input type="text" id="th-title" placeholder="О чём хотите поговорить?">
-        </div>
-        <div class="form-group" style="margin-bottom:16px;">
-          <label>Ваша мысль</label>
-          <textarea id="th-text" placeholder="Поделитесь идеей, вопросом или наблюдением..."></textarea>
-        </div>
-        <div class="form-submit">
-          <button class="btn-primary" onclick="submitThread()">Опубликовать тему</button>
-          <span class="form-note">Уважайте собеседников</span>
-        </div>
+        <div class="form-group" style="margin-bottom:12px;"><label>Ваше имя</label><input type="text" id="th-author" placeholder="Как вас зовут?"></div>
+        <div class="form-group" style="margin-bottom:12px;"><label>Тема обсуждения</label><input type="text" id="th-title" placeholder="О чём хотите поговорить?"></div>
+        <div class="form-group" style="margin-bottom:16px;"><label>Ваша мысль</label><textarea id="th-text" placeholder="Поделитесь идеей, вопросом или наблюдением..."></textarea></div>
+        <div class="form-submit"><button class="btn-primary" onclick="submitThread()">Опубликовать тему</button><span class="form-note">Уважайте собеседников</span></div>
         <div class="form-success" id="threadSuccess">✓ Тема добавлена в обсуждения!</div>
       </div>
-
       <div class="forum-threads" id="forumThreads">
-        <div class="forum-thread">
-          <div class="thread-avatar">🌱</div>
-          <div class="thread-body">
-            <div class="thread-title">Как вы поняли, что начали осознавать?</div>
-            <div class="thread-preview">Был ли у вас момент, когда что-то щёлкнуло? Для меня это случилось в обычный вторник в пробке — я вдруг увидел свои мысли со стороны...</div>
-            <div class="thread-meta">
-              <span>👤 Павел И.</span>
-              <span>📅 14 мая 2026</span>
-            </div>
-          </div>
-          <div class="thread-replies">12 ответов</div>
-        </div>
-        <div class="forum-thread">
-          <div class="thread-avatar">🔮</div>
-          <div class="thread-body">
-            <div class="thread-title">Медитация не работает. Или я что-то делаю не так?</div>
-            <div class="thread-preview">Пробую уже месяц — сижу, закрываю глаза, и просто думаю о чём попало. Голова не замолкает. Это нормально? Как вообще понять, что медитация «идёт»?</div>
-            <div class="thread-meta">
-              <span>👤 Наташа Л.</span>
-              <span>📅 10 мая 2026</span>
-            </div>
-          </div>
-          <div class="thread-replies">24 ответа</div>
-        </div>
-        <div class="forum-thread">
-          <div class="thread-avatar">📚</div>
-          <div class="thread-body">
-            <div class="thread-title">Какая книга изменила ваш взгляд на осознание?</div>
-            <div class="thread-preview">Для меня это «Сила настоящего момента». Читал скептически, но к середине что-то начало меняться. Поделитесь своими книгами-поворотными точками.</div>
-            <div class="thread-meta">
-              <span>👤 Алёна В.</span>
-              <span>📅 5 мая 2026</span>
-            </div>
-          </div>
-          <div class="thread-replies">31 ответ</div>
-        </div>
-        <div class="forum-thread">
-          <div class="thread-avatar">🌊</div>
-          <div class="thread-body">
-            <div class="thread-title">Осознанность и принятие — это не одно и то же?</div>
-            <div class="thread-preview">Я всё время путаю. Осознать что-то неприятное — это уже принять? Или осознание и принятие — разные шаги? Хочу разобраться.</div>
-            <div class="thread-meta">
-              <span>👤 Кирилл М.</span>
-              <span>📅 28 апр. 2026</span>
-            </div>
-          </div>
-          <div class="thread-replies">18 ответов</div>
-        </div>
-        <div class="forum-thread">
-          <div class="thread-avatar">✨</div>
-          <div class="thread-body">
-            <div class="thread-title">Делитесь своими практиками осознанного дня</div>
-            <div class="thread-preview">Что вы делаете каждый день, чтобы оставаться в осознанном состоянии? Собираю живые практики от реальных людей — не из книг, а из опыта.</div>
-            <div class="thread-meta">
-              <span>👤 Автор сайта</span>
-              <span>📅 20 апр. 2026</span>
-            </div>
-          </div>
-          <div class="thread-replies">47 ответов</div>
-        </div>
+        <div class="forum-thread"><div class="thread-avatar">🌱</div><div class="thread-body"><div class="thread-title">Как вы поняли, что начали осознавать?</div><div class="thread-preview">Был ли у вас момент, когда что-то щёлкнуло? Для меня это случилось в обычный вторник в пробке — я вдруг увидел свои мысли со стороны...</div><div class="thread-meta"><span>👤 Павел И.</span><span>📅 14 мая 2026</span></div></div><div class="thread-replies">12 ответов</div></div>
+        <div class="forum-thread"><div class="thread-avatar">🔮</div><div class="thread-body"><div class="thread-title">Медитация не работает. Или я что-то делаю не так?</div><div class="thread-preview">Пробую уже месяц — сижу, закрываю глаза, и просто думаю о чём попало. Голова не замолкает. Это нормально?</div><div class="thread-meta"><span>👤 Наташа Л.</span><span>📅 10 мая 2026</span></div></div><div class="thread-replies">24 ответа</div></div>
+        <div class="forum-thread"><div class="thread-avatar">📚</div><div class="thread-body"><div class="thread-title">Какая книга изменила ваш взгляд на осознание?</div><div class="thread-preview">Для меня это «Сила настоящего момента». Читал скептически, но к середине что-то начало меняться.</div><div class="thread-meta"><span>👤 Алёна В.</span><span>📅 5 мая 2026</span></div></div><div class="thread-replies">31 ответ</div></div>
+        <div class="forum-thread"><div class="thread-avatar">🌊</div><div class="thread-body"><div class="thread-title">Осознанность и принятие — это не одно и то же?</div><div class="thread-preview">Я всё время путаю. Осознать что-то неприятное — это уже принять? Или осознание и принятие — разные шаги?</div><div class="thread-meta"><span>👤 Кирилл М.</span><span>📅 28 апр. 2026</span></div></div><div class="thread-replies">18 ответов</div></div>
+        <div class="forum-thread"><div class="thread-avatar">✨</div><div class="thread-body"><div class="thread-title">Делитесь своими практиками осознанного дня</div><div class="thread-preview">Что вы делаете каждый день, чтобы оставаться в осознанном состоянии? Собираю живые практики от реальных людей.</div><div class="thread-meta"><span>👤 Автор сайта</span><span>📅 20 апр. 2026</span></div></div><div class="thread-replies">47 ответов</div></div>
       </div>
-
     </div>
   </div>
 
@@ -2040,50 +1582,140 @@ footer {
     <div class="footer-col"><h4>Связь</h4><ul><li><a onclick="showPage('contact')">Написать</a></li><li><a onclick="showPage('stories')">Об авторе</a></li></ul></div>
   </footer>
   <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
 </div>
 
-<!-- ═══════════════════════════════════════
-     PAGE: CONTACT
-════════════════════════════════════════ -->
-<div class="page" id="page-contact">
+<!-- ═══ GOV ═══ -->
+<div class="page" id="page-gov">
+  <div class="section-header">
+    <span class="eyebrow">Раздел 07 · Власть</span>
+    <h2>Мировое <em>правительство</em></h2>
+    <p>Исследование скрытых механизмов глобального управления и их влияния на судьбы народов.</p>
+  </div>
+  <div class="blog-filters">
+    <button class="filter-btn active" onclick="filterBlogSection('gov', 'all', this)">Все</button>
+    <button class="filter-btn" onclick="filterBlogSection('gov', 'analytics', this)">Аналитика</button>
+    <button class="filter-btn" onclick="filterBlogSection('gov', 'geopolitics', this)">Геополитика</button>
+    <button class="filter-btn" onclick="filterBlogSection('gov', 'economy', this)">Экономика</button>
+  </div>
+  <div class="blog-grid" id="govGrid">
+    <div class="blog-card" data-tag="analytics">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#1A5276,#0D2B3E)">🏛️</div>
+      <div class="blog-body"><span class="blog-tag">Аналитика</span>
+        <h3>Кто управляет миром: теории и факты</h3>
+        <p>От Бильдербергского клуба до Давоса — как формируются решения, от которых зависит жизнь миллиардов людей планеты.</p>
+        <div class="blog-meta"><span>15 мин чтения</span><span>·</span><span>Май 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="geopolitics">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#2E4A66,#1A2E40)">🌐</div>
+      <div class="blog-body"><span class="blog-tag">Геополитика</span>
+        <h3>Цифровая диктатура: куда идёт человечество</h3>
+        <p>Как технологии контроля превращаются в инструмент тотального надзора — и есть ли путь назад к подлинной свободе.</p>
+        <div class="blog-meta"><span>12 мин чтения</span><span>·</span><span>Апрель 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="economy">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#1A3A52,#0A1E2E)">💰</div>
+      <div class="blog-body"><span class="blog-tag">Экономика</span>
+        <h3>Центральные банки и контроль над деньгами</h3>
+        <p>Кому принадлежат деньги мира? Как система центральных банков формирует реальность миллиардов людей.</p>
+        <div class="blog-meta"><span>10 мин чтения</span><span>·</span><span>Март 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="analytics">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#2C3E50,#1A252F)">🔭</div>
+      <div class="blog-body"><span class="blog-tag">Аналитика</span>
+        <h3>ООН, ВОЗ, МВФ: глобальные институты власти</h3>
+        <p>Зачем созданы эти организации, кто реально ими управляет и какие решения они принимают без нашего ведома.</p>
+        <div class="blog-meta"><span>13 мин чтения</span><span>·</span><span>Февраль 2026</span></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
+    <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('blog')">Статьи</a></li><li><a onclick="showPage('slavic')">История славян</a></li></ul></div>
+    <div class="footer-col"><h4>Связь</h4><ul><li><a onclick="showPage('contact')">Написать</a></li></ul></div>
+    <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
+</div>
 
+<!-- ═══ SLAVIC ═══ -->
+<div class="page" id="page-slavic">
+  <div class="section-header">
+    <span class="eyebrow">Раздел 08 · Корни</span>
+    <h2>Истинная история <em>славян</em></h2>
+    <p>Древние цивилизации, забытые знания и подлинная история народа — до переписывания учебников.</p>
+  </div>
+  <div class="blog-filters">
+    <button class="filter-btn active" onclick="filterBlogSection('slavic', 'all', this)">Все</button>
+    <button class="filter-btn" onclick="filterBlogSection('slavic', 'ancient', this)">Древность</button>
+    <button class="filter-btn" onclick="filterBlogSection('slavic', 'culture', this)">Культура</button>
+    <button class="filter-btn" onclick="filterBlogSection('slavic', 'language', this)">Язык</button>
+  </div>
+  <div class="blog-grid" id="slavicGrid">
+    <div class="blog-card" data-tag="ancient">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#8B4513,#D2691E)">⚔️</div>
+      <div class="blog-body"><span class="blog-tag">Древность</span>
+        <h3>Ведическая Русь: что скрыто от нас</h3>
+        <p>Артефакты, топонимы и язык — следы древней высокой цивилизации на территории современной России и Украины.</p>
+        <div class="blog-meta"><span>18 мин чтения</span><span>·</span><span>Май 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="culture">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#228B22,#006400)">🌲</div>
+      <div class="blog-body"><span class="blog-tag">Культура</span>
+        <h3>Славянские веды: миф или память народа</h3>
+        <p>Что такое «Велесова книга» и другие спорные тексты — подделки или сохранённое древнее знание наших предков?</p>
+        <div class="blog-meta"><span>14 мин чтения</span><span>·</span><span>Март 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="language">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#556B2F,#8FBC8F)">🌾</div>
+      <div class="blog-body"><span class="blog-tag">Язык</span>
+        <h3>Праславянский язык: мать всех языков?</h3>
+        <p>Исследователи находят корни санскрита, латыни и греческого в праславянском языке. Что это говорит о нашей истории?</p>
+        <div class="blog-meta"><span>11 мин чтения</span><span>·</span><span>Февраль 2026</span></div>
+      </div>
+    </div>
+    <div class="blog-card" data-tag="ancient">
+      <div class="blog-thumb" style="background:linear-gradient(135deg,#6B3A2A,#A0522D)">🔥</div>
+      <div class="blog-body"><span class="blog-tag">Древность</span>
+        <h3>Аркаим: город, который старше Египта</h3>
+        <p>На Урале найден город возрастом более 4000 лет — и его строители могли быть предками славян. Что мы знаем наверняка?</p>
+        <div class="blog-meta"><span>16 мин чтения</span><span>·</span><span>Январь 2026</span></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
+    <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('gov')">Мировое правительство</a></li><li><a onclick="showPage('blog')">Статьи</a></li></ul></div>
+    <div class="footer-col"><h4>Связь</h4><ul><li><a onclick="showPage('contact')">Написать</a></li></ul></div>
+    <div class="footer-col"><h4>Поиск</h4><ul><li><a onclick="openSearch()">Найти</a></li></ul></div>
+  </footer>
+  <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="page" id="page-contact">
   <div class="section-header">
     <span class="eyebrow">Раздел 05 · Контакт</span>
     <h2>Напишите <em>нам</em></h2>
     <p>Есть вопрос, идея или хотите поделиться своей историей? Отвечаем на каждое письмо.</p>
   </div>
-
   <div class="contact-wrap">
     <div class="contact-info">
       <h2>Будем рады вашему письму</h2>
       <p>Пишите если хотите задать вопрос об осознании, предложить тему для статьи, поделиться своим опытом или просто сказать что-то важное.</p>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">📬</div>
-        <span>istok@example.com</span>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">⏱️</div>
-        <span>Отвечаем в течение 2–3 дней</span>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">🌍</div>
-        <span>Принимаем письма на русском и английском</span>
-      </div>
+      <div class="contact-detail"><div class="contact-detail-icon">📬</div><span>istok@example.com</span></div>
+      <div class="contact-detail"><div class="contact-detail-icon">⏱️</div><span>Отвечаем в течение 2–3 дней</span></div>
+      <div class="contact-detail"><div class="contact-detail-icon">🌍</div><span>Принимаем письма на русском и английском</span></div>
     </div>
-
     <div>
       <div class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label>Ваше имя</label>
-          <input type="text" id="f-name" placeholder="Как вас зовут?">
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="f-email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>Тема</label>
+        <div class="form-group"><label>Ваше имя</label><input type="text" id="f-name" placeholder="Как вас зовут?"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="f-email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Тема</label>
           <select id="f-topic">
             <option value="">— Выберите тему —</option>
             <option>Вопрос об осознании</option>
@@ -2093,21 +1725,12 @@ footer {
             <option>Другое</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Сообщение</label>
-          <textarea id="f-message" placeholder="Напишите что хотите..."></textarea>
-        </div>
-        <div class="form-submit">
-          <button class="btn-primary" onclick="submitForm()">Отправить письмо</button>
-          <span class="form-note">Без спама. Никогда.</span>
-        </div>
-        <div class="form-success" id="formSuccess">
-          ✓ Спасибо! Ваше письмо отправлено. Мы ответим в течение 2–3 дней.
-        </div>
+        <div class="form-group"><label>Сообщение</label><textarea id="f-message" placeholder="Напишите что хотите..."></textarea></div>
+        <div class="form-submit"><button class="btn-primary" onclick="submitForm()">Отправить письмо</button><span class="form-note">Без спама. Никогда.</span></div>
+        <div class="form-success" id="formSuccess">✓ Спасибо! Ваше письмо отправлено. Мы ответим в течение 2–3 дней.</div>
       </div>
     </div>
   </div>
-
   <footer>
     <div class="footer-brand"><h3>Исток</h3><p>Осознание как путь, а не цель.</p></div>
     <div class="footer-col"><h4>Разделы</h4><ul><li><a onclick="showPage('home')">Главная</a></li><li><a onclick="showPage('blog')">Статьи</a></li><li><a onclick="showPage('practices')">Практики</a></li></ul></div>
@@ -2115,7 +1738,6 @@ footer {
     <div class="footer-col"><h4>Истории</h4><ul><li><a onclick="showPage('stories')">Об авторе</a></li><li><a onclick="showPage('stories')">Читатели</a></li></ul></div>
   </footer>
   <div class="footer-bottom"><span>© 2026 Исток</span><span>Сделано с намерением</span></div>
-
 </div>
 
 <script>
@@ -2123,24 +1745,31 @@ footer {
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+  const page = document.getElementById('page-' + id);
+  if (page) page.classList.add('active');
   const navEl = document.getElementById('nav-' + id);
   if (navEl) navEl.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─── BLOG FILTER ───
+// ─── BLOG FILTER (main blog) ───
 function filterBlog(tag, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.blog-card').forEach(card => {
-    if (tag === 'all' || card.dataset.tag === tag) {
-      card.style.display = '';
-      card.style.animation = 'pageIn 0.4s ease both';
-    } else {
-      card.style.display = 'none';
-    }
+  document.querySelectorAll('#blogGrid .blog-card').forEach(card => {
+    card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
   });
+  btn.closest('.blog-filters').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ─── BLOG FILTER (section-specific) ───
+function filterBlogSection(section, tag, btn) {
+  const grid = document.getElementById(section + 'Grid');
+  if (!grid) return;
+  grid.querySelectorAll('.blog-card').forEach(card => {
+    card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
+  });
+  btn.closest('.blog-filters').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
 // ─── SEARCH ───
@@ -2162,56 +1791,31 @@ const searchData = [
   { icon:'🖋️', title:'Стихи об осознании', desc:'Творчество · Поэзия', page:'creative' },
   { icon:'🎨', title:'Галерея образов', desc:'Творчество · Картины и иллюстрации', page:'creative' },
   { icon:'💬', title:'Обсуждения', desc:'Творчество · Форум сообщества', page:'creative' },
+  { icon:'🏛️', title:'Мировое правительство', desc:'Власть · Глобальное управление', page:'gov' },
+  { icon:'⚔️', title:'Ведическая Русь: что скрыто от нас', desc:'Славяне · Древность', page:'slavic' },
+  { icon:'🌲', title:'Истинная история славян', desc:'Корни · Древние цивилизации', page:'slavic' },
 ];
 
 function openSearch() {
   document.getElementById('searchOverlay').classList.add('open');
   setTimeout(() => document.getElementById('searchInput').focus(), 100);
 }
-
 function closeSearch() {
   document.getElementById('searchOverlay').classList.remove('open');
   document.getElementById('searchInput').value = '';
   document.getElementById('searchResults').innerHTML = '<div class="search-empty">Начните вводить запрос...</div>';
 }
-
 function doSearch(query) {
   const results = document.getElementById('searchResults');
-  if (!query.trim()) {
-    results.innerHTML = '<div class="search-empty">Начните вводить запрос...</div>';
-    return;
-  }
+  if (!query.trim()) { results.innerHTML = '<div class="search-empty">Начните вводить запрос...</div>'; return; }
   const q = query.toLowerCase();
-  const found = searchData.filter(item =>
-    item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q)
-  );
-  if (!found.length) {
-    results.innerHTML = '<div class="search-empty">Ничего не найдено по запросу «' + query + '»</div>';
-    return;
-  }
-  results.innerHTML = found.map(item => `
-    <div class="search-result-item" onclick="goToResult('${item.page}')">
-      <div class="result-icon">${item.icon}</div>
-      <div class="result-text">
-        <strong>${item.title}</strong>
-        <span>${item.desc}</span>
-      </div>
-    </div>
-  `).join('');
+  const found = searchData.filter(item => item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q));
+  if (!found.length) { results.innerHTML = '<div class="search-empty">Ничего не найдено по запросу «' + query + '»</div>'; return; }
+  results.innerHTML = found.map(item => `<div class="search-result-item" onclick="goToResult('${item.page}')"><div class="result-icon">${item.icon}</div><div class="result-text"><strong>${item.title}</strong><span>${item.desc}</span></div></div>`).join('');
 }
-
-function goToResult(page) {
-  closeSearch();
-  showPage(page);
-}
-
-document.getElementById('searchOverlay').addEventListener('click', function(e) {
-  if (e.target === this) closeSearch();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeSearch();
-});
+function goToResult(page) { closeSearch(); showPage(page); }
+document.getElementById('searchOverlay').addEventListener('click', function(e) { if (e.target === this) closeSearch(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSearch(); });
 
 // ─── CREATIVE TABS ───
 function switchTab(tab, btn) {
@@ -2220,14 +1824,12 @@ function switchTab(tab, btn) {
   btn.classList.add('active');
   document.getElementById('panel-' + tab).classList.add('active');
 }
-
 function switchTabDirect(tab) {
   showPage('creative');
   const tabs = document.querySelectorAll('.creative-tab');
-  const panels = document.querySelectorAll('.creative-panel');
   const idx = { poems: 0, gallery: 1, forum: 2 };
-  tabs.forEach(b => b.classList.remove('active'));
-  panels.forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.creative-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.creative-panel').forEach(p => p.classList.remove('active'));
   tabs[idx[tab]].classList.add('active');
   document.getElementById('panel-' + tab).classList.add('active');
 }
@@ -2242,8 +1844,7 @@ function submitPoem() {
   const card = document.createElement('div');
   card.className = 'poem-card';
   card.style.animation = 'pageIn 0.5s ease both';
-  const now = new Date();
-  const dateStr = now.toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' });
+  const dateStr = new Date().toLocaleDateString('ru-RU', { month: 'long', year: 'numeric' });
   card.innerHTML = `<div class="poem-title">${title}</div><div class="poem-text">${text}</div><div class="poem-author">${author} · ${dateStr}</div>`;
   grid.prepend(card);
   document.getElementById('p-author').value = '';
@@ -2264,7 +1865,6 @@ function previewImage(input) {
   };
   reader.readAsDataURL(input.files[0]);
 }
-
 function submitImage() {
   const title = document.getElementById('img-title').value.trim();
   const author = document.getElementById('img-author').value.trim();
@@ -2274,8 +1874,7 @@ function submitImage() {
   const item = document.createElement('div');
   item.className = 'gallery-item';
   item.style.animation = 'pageIn 0.5s ease both';
-  item.innerHTML = `<img src="${src}" alt="${title}" style="width:100%;height:100%;object-fit:cover;">
-    <div class="gallery-overlay"><span>${title}</span><small>${author}</small></div>`;
+  item.innerHTML = `<img src="${src}" alt="${title}" style="width:100%;height:100%;object-fit:cover;"><div class="gallery-overlay"><span>${title}</span><small>${author}</small></div>`;
   grid.prepend(item);
   document.getElementById('uploadPreview').style.display = 'none';
   document.getElementById('img-title').value = '';
@@ -2292,27 +1891,14 @@ function submitThread() {
   const title = document.getElementById('th-title').value.trim();
   const text = document.getElementById('th-text').value.trim();
   if (!author || !title || !text) { alert('Заполните все поля.'); return; }
-  const threads = document.getElementById('forumThreads');
   const emojis = ['🌱','💡','🌊','✨','🔮','🌿','☯️','🕊️'];
   const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-  const now = new Date();
-  const dateStr = now.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' });
+  const dateStr = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', year: 'numeric' });
   const thread = document.createElement('div');
   thread.className = 'forum-thread';
   thread.style.animation = 'pageIn 0.5s ease both';
-  thread.innerHTML = `
-    <div class="thread-avatar">${emoji}</div>
-    <div class="thread-body">
-      <div class="thread-title">${title}</div>
-      <div class="thread-preview">${text}</div>
-      <div class="thread-meta">
-        <span>👤 ${author}</span>
-        <span>📅 ${dateStr}</span>
-      </div>
-    </div>
-    <div class="thread-replies">0 ответов</div>
-  `;
-  threads.prepend(thread);
+  thread.innerHTML = `<div class="thread-avatar">${emoji}</div><div class="thread-body"><div class="thread-title">${title}</div><div class="thread-preview">${text}</div><div class="thread-meta"><span>👤 ${author}</span><span>📅 ${dateStr}</span></div></div><div class="thread-replies">0 ответов</div>`;
+  document.getElementById('forumThreads').prepend(thread);
   document.getElementById('th-author').value = '';
   document.getElementById('th-title').value = '';
   document.getElementById('th-text').value = '';
@@ -2321,15 +1907,12 @@ function submitThread() {
   setTimeout(() => s.classList.remove('show'), 4000);
 }
 
-// ─── FORM ───
+// ─── CONTACT FORM ───
 function submitForm() {
   const name = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
   const message = document.getElementById('f-message').value.trim();
-  if (!name || !email || !message) {
-    alert('Пожалуйста, заполните имя, email и сообщение.');
-    return;
-  }
+  if (!name || !email || !message) { alert('Пожалуйста, заполните имя, email и сообщение.'); return; }
   document.getElementById('formSuccess').classList.add('show');
   document.getElementById('f-name').value = '';
   document.getElementById('f-email').value = '';
